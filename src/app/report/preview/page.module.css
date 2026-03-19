@@ -1,0 +1,258 @@
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: var(--space-md);
+  color: var(--color-text-secondary);
+}
+
+.page {
+  min-height: 100vh;
+  padding-bottom: var(--space-3xl);
+}
+
+.nav {
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-card-border);
+  background: var(--color-bg-white);
+  margin-bottom: var(--space-xl);
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: color 0.2s;
+}
+
+.backBtn:hover {
+  color: var(--color-primary);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 800;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* Vehicle Card */
+.vehicleCard {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  box-shadow: 0 2px 12px var(--color-card-shadow);
+}
+
+.freeTag {
+  display: inline-block;
+  background: rgba(0, 200, 83, 0.1);
+  color: var(--color-safe);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.vehicleName {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-xs);
+}
+
+.vin {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-family: monospace;
+  margin-bottom: var(--space-lg);
+}
+
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.spec {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--color-primary);
+}
+
+.specLabel {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.specValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.sourceTag {
+  display: inline-block;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Pricing */
+.pricingSection {
+  text-align: center;
+}
+
+.pricingTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-sm);
+}
+
+.pricingSubtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-xl);
+}
+
+.tierCards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.tierCard {
+  text-align: left;
+  position: relative;
+}
+
+.tierCard h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.tierPrice {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-sm);
+}
+
+.tierSavings {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-safe);
+  margin-bottom: var(--space-md);
+}
+
+.tierPopular {
+  border: 2px solid var(--color-cta);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: var(--color-cta);
+  color: var(--color-cta-text);
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bestBadge {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: var(--color-safe);
+  color: #fff;
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tierFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tierFeatures li {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.paymentInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--space-lg);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.paymentAlert {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .specsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

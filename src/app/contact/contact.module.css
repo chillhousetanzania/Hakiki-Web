@@ -1,0 +1,196 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* HERO */
+.heroSection {
+  background: white;
+  padding: 8rem 0 6rem;
+}
+
+.tag {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: #475569;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* GRID */
+.contactGridSection {
+  padding: 0 0 6rem;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contactCard {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contactCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.06);
+}
+
+.iconBox {
+  width: 64px;
+  height: 64px;
+  background: #f0fdf4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.iconStyle {
+  color: #16a34a;
+}
+
+.contactCard h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.contactCard p {
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.linkText {
+  color: #3b82f6;
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+}
+
+.linkText:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: #94a3b8;
+  font-weight: 600;
+  background: #f8fafc;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+}
+
+/* MAP */
+.mapSection {
+  padding: 0 0 6rem;
+}
+
+.mapMockup {
+  height: 400px;
+  background-color: #cbd5e1;
+  background-image: radial-gradient(#94a3b8 1px, transparent 1px);
+  background-size: 20px 20px;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.mapPin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: #3b82f6;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  border: 4px solid white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 2;
+}
+
+.pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background: rgba(59, 130, 246, 0.4);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseAnim 2s infinite ease-out;
+  z-index: 1;
+}
+
+@keyframes pulseAnim {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+.footerSimple {
+  background: white;
+  padding: 2rem 0;
+  text-align: center;
+  color: #94a3b8;
+  font-weight: 600;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .gridContainer { grid-template-columns: 1fr; }
+  .title { font-size: 2.5rem; }
+}

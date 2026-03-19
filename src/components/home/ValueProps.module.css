@@ -1,0 +1,72 @@
+.section {
+  padding: 80px 0;
+  background: var(--color-bg-white);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  line-height: 1.2;
+  margin-bottom: var(--space-md);
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2xl);
+}
+
+.card {
+  text-align: center;
+  padding: var(--space-xl);
+}
+
+.illustrationWrap {
+  margin-bottom: var(--space-lg);
+  display: flex;
+  justify-content: center;
+}
+
+.illustration {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-md);
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+}

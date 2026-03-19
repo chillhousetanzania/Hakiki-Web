@@ -1,0 +1,334 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* HERO SECTION */
+.heroSection {
+  background: #fdf2f8; /* Soft pink/red hue to mimic YouTube creator vibes */
+  padding: 6rem 0;
+  border-bottom: 1px solid #fbcfe8;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.creatorTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: #db2777;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(219, 39, 119, 0.1);
+}
+
+.tagIcon {
+  color: #db2777;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 90%;
+}
+
+.ctaRow {
+  margin-bottom: 2rem;
+}
+
+.applyBtn {
+  display: inline-block;
+  background-color: #db2777;
+  color: white;
+  font-weight: 800;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(219, 39, 119, 0.3);
+}
+
+.applyBtn:hover {
+  background-color: #be185d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(219, 39, 119, 0.4);
+}
+
+.statsRow {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+.statLine strong {
+  display: block;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+/* YOUTUBE MOCKUP */
+.heroVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.youtubeMockup {
+  background: white;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.3s ease;
+}
+
+.youtubeMockup:hover {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.ytScreen {
+  height: 240px;
+  background: #111827;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.playButton {
+  width: 60px;
+  height: 40px;
+  background: #ef4444;
+  border-radius: 8px;
+  position: relative;
+}
+
+.playButton::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  border-left: 12px solid white;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+}
+
+.ytInfo {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.ytAvatar {
+  width: 40px;
+  height: 40px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.ytTitle {
+  font-weight: 700;
+  color: #111827;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.ytChannel {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.ytDescription {
+  padding: 1rem;
+  font-size: 0.85rem;
+  color: #4b5563;
+  line-height: 1.5;
+  background: #f9fafb;
+}
+
+.sponsorDrop {
+  display: block;
+  background: #fdf2f8;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border-left: 3px solid #db2777;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+/* PERKS */
+.perksSection {
+  padding: 6rem 0;
+  background: white;
+}
+
+.sectionHeading {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 4rem;
+}
+
+.perksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.perkCard {
+  text-align: center;
+}
+
+.iconBox {
+  width: 64px;
+  height: 64px;
+  background: #fdf2f8;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.iconVlog {
+  color: #db2777;
+}
+
+.perkCard h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.perkCard p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* REQUIREMENTS */
+.requirementsBanner {
+  padding: 0 0 6rem;
+  background: white;
+}
+
+.reqInner {
+  background: #111827;
+  border-radius: 24px;
+  padding: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 4rem;
+  align-items: center;
+  color: white;
+}
+
+.reqContent h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.reqList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reqList li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.checkIcon {
+  color: #db2777;
+  flex-shrink: 0;
+}
+
+.reqAction {
+  background: rgba(255,255,255,0.05);
+  padding: 2.5rem;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.reqAction p {
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+}
+
+.outlineBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: #111827;
+  font-weight: 800;
+  padding: 1rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: background 0.2s;
+}
+
+.outlineBtn:hover {
+  background: #f3f4f6;
+}
+
+.footerSimple {
+  background: white;
+  padding: 2rem 0;
+  text-align: center;
+  color: #9ca3af;
+  font-weight: 600;
+  border-top: 1px solid #f3f4f6;
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .heroInner { grid-template-columns: 1fr; text-align: center; }
+  .heroSubtitle { margin: 0 auto 2rem; }
+  .statsRow { justify-content: center; }
+  .youtubeMockup { transform: none; margin: 0 auto; }
+  .perksGrid { grid-template-columns: 1fr; gap: 2rem; }
+  .reqInner { grid-template-columns: 1fr; text-align: center; padding: 2.5rem; gap: 2.5rem; }
+  .reqList li { justify-content: center; }
+}

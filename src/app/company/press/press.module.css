@@ -1,0 +1,265 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* HERO */
+.heroSection {
+  background: white;
+  padding: 8rem 0 5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tag {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: #475569;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* CONTENT GRID */
+.contentSection {
+  padding: 6rem 0;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.sectionDesc {
+  color: #64748b;
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+}
+
+/* ASSETS */
+.assetsColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.assetCard {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.assetCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+}
+
+.assetVisual {
+  height: 200px;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.assetVisualDark {
+  height: 200px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoMock {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #3b82f6;
+  letter-spacing: -0.05em;
+}
+
+.logoMockDark {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: -0.05em;
+}
+
+.assetInfo {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assetInfo h3 {
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.assetInfo p {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.downloadBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.downloadBtn:hover {
+  background: #e2e8f0;
+}
+
+/* PR COLUMN */
+.prColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+  margin-top: 1.5rem;
+}
+
+.newsItem {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.newsItem:hover {
+  border-color: #3b82f6;
+}
+
+.date {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.newsItem h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.readMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #3b82f6;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.contactBox {
+  background: #eff6ff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid #bfdbfe;
+}
+
+.contactBox h3 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.contactBox p {
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.emailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: #1e3a8a;
+  font-weight: 700;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.emailLink:hover {
+  transform: translateY(-2px);
+}
+
+.footerSimple {
+  background: white;
+  padding: 2rem 0;
+  text-align: center;
+  color: #94a3b8;
+  font-weight: 600;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .gridContainer { grid-template-columns: 1fr; gap: 4rem; }
+}

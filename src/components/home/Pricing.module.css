@@ -1,0 +1,190 @@
+.section {
+  padding: var(--space-3xl) 0;
+  background: var(--color-bg-accent);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-on-accent);
+  text-align: center;
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.popular {
+  border: 3px solid var(--color-cta);
+  transform: scale(1.03);
+}
+
+.popular:hover {
+  transform: scale(1.03) translateY(-4px);
+}
+
+.savingsBadge {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+  background: var(--color-cta);
+  color: var(--color-cta-text);
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.bestDealBadge {
+  position: absolute;
+  top: -12px;
+  left: 16px;
+  background: var(--color-safe);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tierName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  margin-top: var(--space-sm);
+}
+
+.priceBlock {
+  margin-bottom: var(--space-lg);
+}
+
+.priceTZS {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+}
+
+.priceUSD {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.features {
+  list-style: none;
+  margin-bottom: var(--space-xl);
+  flex: 1;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.checkIcon {
+  color: var(--color-safe);
+  flex-shrink: 0;
+}
+
+.paymentInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: var(--space-2xl);
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Coming Soon */
+.comingSoonTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text-on-accent);
+  text-align: center;
+  margin-top: var(--space-3xl);
+  margin-bottom: var(--space-sm);
+}
+
+.comingSoonSubtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.comingSoonCard {
+  opacity: 0.7;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.comingSoonCard:hover {
+  transform: none;
+  box-shadow: none;
+  opacity: 0.8;
+}
+
+.comingSoonBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-sm);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  .popular {
+    transform: none;
+  }
+  .popular:hover {
+    transform: translateY(-4px);
+  }
+  .title {
+    font-size: 1.75rem;
+  }
+}

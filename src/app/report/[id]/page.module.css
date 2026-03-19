@@ -1,0 +1,338 @@
+.loadingPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.loadingContent {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.loadingContent h2 {
+  color: var(--color-text-heading);
+  font-size: 1.5rem;
+}
+
+.loadingContent p {
+  color: var(--color-text-muted);
+}
+
+.page {
+  min-height: 100vh;
+  padding-bottom: var(--space-3xl);
+}
+
+.nav {
+  background: var(--color-bg-white);
+  border-bottom: 1px solid var(--color-card-border);
+  padding: var(--space-md) 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 800;
+  color: var(--color-primary);
+}
+
+.reportContainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: var(--space-xl);
+}
+
+/* Header */
+.reportHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.vehicleTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-xs);
+}
+
+.vinCode {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.specRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.specRow span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+/* Score */
+.scoreBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.scoreCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.scoreNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-text);
+  background: var(--color-bg-white);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreLabel {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.scoreDesc {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Sections */
+.section, .statusSection {
+  margin-bottom: var(--space-lg);
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-lg);
+}
+
+/* Status Grid */
+.statusGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: #F8FAFC;
+}
+
+.statusLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.statusDetail {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.iconSafe { color: var(--color-safe); }
+.iconDanger { color: var(--color-danger); }
+
+/* Table */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-muted);
+  border-bottom: 2px solid var(--color-card-border);
+}
+
+.table td {
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid #F0F4F8;
+}
+
+/* Records */
+.recordsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.record {
+  padding: var(--space-md);
+  background: #F8FAFC;
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-warning);
+}
+
+.recordDate {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.recordContent {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: 4px;
+}
+
+.recordType {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.recordDesc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--color-text-muted);
+}
+
+.emptyIcon { color: var(--color-text-muted); margin-bottom: var(--space-sm); }
+.emptyIconSafe { color: var(--color-safe); margin-bottom: var(--space-sm); }
+
+/* Ownership */
+.ownershipInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.ownerCount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ownerNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+}
+
+.ownerCount span:last-child {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Footer */
+.reportFooter {
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl);
+  background: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  text-align: center;
+}
+
+.reportFooter p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.disclaimer {
+  margin-top: var(--space-md) !important;
+  font-style: italic;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reportHeader {
+    flex-direction: column;
+  }
+
+  .statusGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .vehicleTitle {
+    font-size: 1.5rem;
+  }
+
+  .specRow {
+    gap: var(--space-sm);
+  }
+}

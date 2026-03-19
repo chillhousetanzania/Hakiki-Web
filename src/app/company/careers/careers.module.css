@@ -1,0 +1,270 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* HERO */
+.heroSection {
+  background: white;
+  padding: 8rem 0 6rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tag {
+  display: inline-block;
+  background: #f1f5f9;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.btnPrimary {
+  display: inline-block;
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 800;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btnPrimary:hover {
+  background-color: #2563eb;
+}
+
+/* CULTURE */
+.cultureSection {
+  padding: 6rem 0;
+  background: white;
+}
+
+.cultureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cultureBox {
+  text-align: center;
+}
+
+.iconBg {
+  width: 64px;
+  height: 64px;
+  background: #eff6ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.iconCore {
+  color: #3b82f6;
+}
+
+.cultureBox h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.cultureBox p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ROLES */
+.rolesSection {
+  padding: 6rem 0;
+}
+
+.rolesWrap {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.rolesHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.rolesHeader h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.badgeCount {
+  background: #dbeafe;
+  color: #1e3a8a;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.8rem;
+  border-radius: 999px;
+}
+
+.rolesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.roleCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  text-decoration: none;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.roleCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+  border-color: #cbd5e1;
+}
+
+.roleInfo h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.roleTags {
+  display: flex;
+  gap: 1rem;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.deptTag {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+.locTag {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.roleAction {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.typeLabel {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.applyBtnIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0f172a;
+  transition: background 0.2s, color 0.2s;
+}
+
+.roleCard:hover .applyBtnIcon {
+  background: #3b82f6;
+  color: white;
+}
+
+/* CTA */
+.ctaFooter {
+  padding: 5rem 0;
+}
+
+.ctaFooter h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.ctaFooter p {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.outlineBtn {
+  display: inline-block;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  font-weight: 800;
+  padding: 0.8rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.outlineBtn:hover {
+  background: white;
+}
+
+.footerSimple {
+  background: white;
+  padding: 2rem 0;
+  text-align: center;
+  color: #94a3b8;
+  font-weight: 600;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 2.5rem; }
+  .cultureGrid { grid-template-columns: 1fr; gap: 4rem; }
+  .roleCard { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .roleAction { width: 100%; justify-content: space-between; }
+}

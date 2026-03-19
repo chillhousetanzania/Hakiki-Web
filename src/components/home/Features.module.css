@@ -1,0 +1,117 @@
+.section {
+  padding: 80px 0;
+  background: var(--color-bg);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* 2x2 card grid like CarVertical */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 8px 30px var(--color-card-hover-shadow);
+  transform: translateY(-3px);
+}
+
+.imageWrap {
+  flex-shrink: 0;
+  width: 280px;
+  height: 200px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.featureImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.svgIllustration {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm);
+}
+
+.svgImage {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.textWrap {
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-bottom: var(--space-md);
+}
+
+.cardDesc {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .imageWrap {
+    width: 100%;
+    height: 180px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+}

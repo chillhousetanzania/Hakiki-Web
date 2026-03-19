@@ -1,0 +1,307 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+/* HERO SECTION */
+.heroSection {
+  background: linear-gradient(to bottom, #f0fdf4 0%, #ffffff 100%);
+  padding: 6rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.badgeLabel {
+  display: inline-block;
+  background: #dcfce7;
+  color: #166534;
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.heroSubtitle {
+  font-size: 1.15rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.primaryBtn {
+  background-color: #22c55e;
+  color: white;
+  font-weight: 800;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3);
+}
+
+.primaryBtn:hover {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+.trustNote {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* DASHBOARD MOCKUP */
+.heroVisual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.dashboardMockup {
+  background: white;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.3s ease;
+}
+
+.dashboardMockup:hover {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.mockupHeader {
+  background: #0f172a;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  color: white;
+}
+
+.mockupTitle {
+  font-weight: 700;
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.balLabel {
+  display: block;
+  font-size: 0.8rem;
+  color: #cbd5e1;
+  margin-bottom: 0.25rem;
+  text-align: right;
+}
+
+.balAmount {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #22c55e;
+}
+
+.mockupBody {
+  padding: 1.5rem;
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.statBox {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #f1f5f9;
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.statValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.chartMockup {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 120px;
+  gap: 8px;
+  padding-top: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.bar {
+  flex: 1;
+  background: #dcfce7;
+  border-radius: 4px 4px 0 0;
+  transition: background 0.2s;
+}
+
+.bar:hover, .bar:last-child {
+  background: #22c55e;
+}
+
+/* BENEFITS */
+.benefitsSection {
+  padding: 6rem 0;
+  background: white;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4rem;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.benefitCard {
+  text-align: center;
+}
+
+.iconContainer {
+  width: 64px;
+  height: 64px;
+  background: #f0fdf4;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.iconAccent {
+  color: #16a34a;
+}
+
+.benefitCard h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.benefitCard p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* BOTTOM BANNER */
+.bottomBanner {
+  padding: 5rem 0;
+  background: white;
+}
+
+.bannerInner {
+  background: #0f172a;
+  border-radius: 24px;
+  padding: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.bannerText h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.bannerText p {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  max-width: 500px;
+}
+
+.bannerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #22c55e;
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.bannerBtn:hover {
+  background: #16a34a;
+}
+
+.footerSimple {
+  background: white;
+  padding: 2rem 0;
+  text-align: center;
+  color: #94a3b8;
+  font-weight: 600;
+  border-top: 1px solid #e2e8f0;
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .heroInner { grid-template-columns: 1fr; text-align: center; }
+  .heroSubtitle { margin: 0 auto 2.5rem; }
+  .heroActions { align-items: center; }
+  .dashboardMockup { transform: none; margin: 0 auto; }
+  .benefitsGrid { grid-template-columns: 1fr; gap: 2rem; }
+  .bannerInner { flex-direction: column; text-align: center; gap: 2rem; padding: 2.5rem; }
+  .bannerText p { margin: 0 auto; }
+}
