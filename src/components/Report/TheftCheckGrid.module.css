@@ -1,0 +1,99 @@
+.container {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.header {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.shieldIcon {
+  color: #16a34a;
+  background: #dcfce7;
+  padding: 0.75rem;
+  border-radius: 12px;
+  box-sizing: content-box;
+}
+
+.header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.header p {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.countryBox {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.2s;
+}
+
+.countryBox:hover {
+  transform: translateY(-2px);
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.flag {
+  font-size: 2rem;
+}
+
+.countryName {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: center;
+}
+
+.statusBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

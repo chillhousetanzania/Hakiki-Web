@@ -9,8 +9,31 @@ const featureImages = [
   '/feature-photos.png',
   '/feature-damage.png',
   '/feature-theft.png',
-  null, // ownership history uses inline SVG illustration
+  null,
 ]
+
+function PhotoCollage({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div className={styles.collageContainer}>
+      <div className={styles.collageMain}>
+        <div className={styles.collageImgWrap}>
+          <Image src={src} alt={alt} fill className={styles.sliceTopLeft} unoptimized />
+        </div>
+      </div>
+      <div className={styles.collageThumbs}>
+        <div className={styles.collageThumb}>
+          <Image src={src} alt="Damage 1" fill className={styles.sliceTopRight} unoptimized />
+        </div>
+        <div className={styles.collageThumb}>
+          <Image src={src} alt="Damage 2" fill className={styles.sliceBottomLeft} unoptimized />
+        </div>
+        <div className={styles.collageThumb}>
+          <Image src={src} alt="Interior" fill className={styles.sliceBottomRight} unoptimized />
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function OwnershipIllustration() {
   return (
@@ -68,9 +91,11 @@ export default function Features() {
           {displayFeatures.map((feature: { title: string; description: string }, i: number) => (
             <div key={i} className={styles.card} id={`feature-card-${i}`}>
               <div className={styles.imageWrap}>
-                {featureImages[i] ? (
+                {i === 0 ? (
+                  <PhotoCollage src={featureImages[i] || ''} alt={feature.title} />
+                ) : featureImages[i] ? (
                   <Image
-                    src={featureImages[i]}
+                    src={featureImages[i]!}
                     alt={feature.title}
                     width={320}
                     height={220}

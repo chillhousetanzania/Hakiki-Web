@@ -1,0 +1,54 @@
+.insightsBox {
+  display: flex;
+  gap: 1.5rem;
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.iconContainer {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: white;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.lightbulb {
+  color: #0ea5e9;
+}
+
+.textContainer {
+  flex: 1;
+}
+
+.insightsTitle {
+  font-size: 1rem;
+  font-weight: 800;
+  color: #0369a1;
+  margin-bottom: 0.5rem;
+}
+
+.insightsContent {
+  font-size: 0.95rem;
+  color: #0c4a6e;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.brandTag {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #0284c7;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

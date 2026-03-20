@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { useState } from 'react'
-import { Shield, Languages, CheckCircle } from 'lucide-react'
+import { Shield, Languages, Check, CarFront, Bike, Truck, Bus } from 'lucide-react'
 import VinInput from '@/components/home/VinInput'
 import ValueProps from '@/components/home/ValueProps'
 import Features from '@/components/home/Features'
@@ -33,6 +33,7 @@ const uncoverItems = [
   { en: 'Theft records', sw: 'Rekodi za wizi' },
   { en: 'Mileage rollbacks', sw: 'Udanganyifu wa maileji' },
   { en: 'Specs & equipment', sw: 'Vipimo na vifaa' },
+  { en: 'Emission taxes', sw: 'Kodi za uzalishaji hewa' },
   { en: 'Market price', sw: 'Bei ya soko' },
   { en: 'Safety ratings', sw: 'Viwango vya usalama' },
   { en: 'Financial restrictions', sw: 'Vikwazo vya kifedha' },
@@ -85,6 +86,13 @@ export default function Home() {
             <a href="/no-vin" className={styles.noVinLink}>
               {isEn ? "I don't have a VIN →" : 'Sina VIN →'}
             </a>
+            <div className={styles.weCheckRow}>
+              <span>{isEn ? 'We check:' : 'Tunahakiki:'}</span>
+              <CarFront size={18} />
+              <Bike size={18} />
+              <Truck size={18} />
+              <Bus size={18} />
+            </div>
             <div className={styles.uncoverSection}>
               <h3 className={styles.uncoverTitle}>
                 {isEn ? 'A Hakiki report can uncover:' : 'Ripoti ya Hakiki inaweza kufichua:'}
@@ -92,7 +100,7 @@ export default function Home() {
               <div className={styles.uncoverGrid}>
                 {uncoverItems.map((item, i) => (
                   <span key={i} className={styles.uncoverItem}>
-                    <CheckCircle size={14} className={styles.uncoverCheck} />
+                    <Check size={16} strokeWidth={2.5} className={styles.uncoverCheck} />
                     {isEn ? item.en : item.sw}
                   </span>
                 ))}
@@ -101,12 +109,21 @@ export default function Home() {
           </div>
           <div className={styles.heroVisual}>
             <Image
-              src="/hero-cars-v3.png"
-              alt="Hakiki vehicle history report illustration"
-              width={580}
-              height={420}
+              src="/hero-cars-v5.png"
+              alt="Hakiki Verified Vehicle Fleet"
+              width={600}
+              height={450}
+              unoptimized
               priority
               className={styles.heroImage}
+            />
+            <Image
+              src="/hero-data-cards.png"
+              alt="Hakiki Report Data"
+              width={480}
+              height={360}
+              unoptimized
+              className={styles.heroDataCards}
             />
           </div>
         </div>

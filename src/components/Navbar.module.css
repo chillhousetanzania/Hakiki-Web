@@ -1,7 +1,7 @@
 .nav {
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 999;
   background: var(--color-bg);
   border-bottom: 1px solid var(--color-card-border);
   padding: 1rem 0;
@@ -69,16 +69,20 @@
   position: absolute;
   top: 100%;
   left: 0;
+  padding-top: 15px; /* Invisible gap bridge */
+  z-index: 1000;
+}
+
+.dropdownMenuInner {
   background: white;
   min-width: 240px;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Exact CarVertical dropdown shadow */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
   padding: 0.5rem 0;
   display: flex;
   flex-direction: column;
   animation: slideDown 0.2s ease forwards;
   border: 1px solid var(--color-border);
-  z-index: 100;
 }
 
 @keyframes slideDown {
@@ -86,15 +90,16 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-.dropdownMenu a {
+.dropdownMenuInner a {
   padding: 0.75rem 1.5rem;
   color: var(--color-text);
   text-decoration: none;
   font-size: 0.95rem;
   transition: background 0.15s, color 0.15s;
+  display: block;
 }
 
-.dropdownMenu a:hover {
+.dropdownMenuInner a:hover {
   background: #f4f7fb;
   color: var(--color-primary);
 }

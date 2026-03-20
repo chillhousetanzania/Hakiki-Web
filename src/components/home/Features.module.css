@@ -52,7 +52,66 @@
   height: 200px;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--color-bg);
+  background: #f0f7ff; /* Light blue frame like CV */
+  padding: 8px; /* Frame padding */
+}
+
+/* Photo Collage Component Styles */
+.collageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+}
+
+.collageMain {
+  flex: 1;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.collageThumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  height: 30%;
+}
+
+.collageThumb {
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Slicing Logic for a 2x2 grid image */
+.sliceTopLeft, .sliceTopRight, .sliceBottomLeft, .sliceBottomRight {
+  width: 200% !important;
+  height: 200% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+}
+
+.sliceTopLeft {
+  top: 0; left: 0;
+}
+
+.sliceTopRight {
+  top: 0; left: -100%;
+}
+
+.sliceBottomLeft {
+  top: -100%; left: 0;
+}
+
+.sliceBottomRight {
+  top: -100%; left: -100%;
+}
+
+.collageImgWrap {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
 }
 
 .featureImage {

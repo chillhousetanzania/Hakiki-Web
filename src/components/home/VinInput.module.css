@@ -83,9 +83,9 @@
 @media (max-width: 600px) {
   .inputGroup {
     flex-direction: column;
-    border-radius: var(--radius-lg);
-    padding: var(--space-md);
-    gap: var(--space-sm);
+    border-radius: 12px;
+    padding: 12px;
+    gap: 8px;
   }
 
   .searchIcon {
@@ -95,10 +95,18 @@
   .input {
     width: 100%;
     text-align: center;
+    padding: 6px 0;
+    font-size: 0.95rem;
   }
 
   .button {
     width: 100%;
-    padding: 14px;
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+
+  .error, .hint {
+    margin-top: 4px;
+    font-size: 0.75rem;
   }
 }

@@ -35,24 +35,24 @@ export const translations = {
       sectionSubtitle: "Every Hakiki report analyzes multiple data points to give you the full picture before you buy.",
       items: [
         {
-          title: 'Verify Actual Mileage',
-          description: 'Detect odometer tampering with historical mileage records from service and inspection data.',
+          title: 'See the real picture',
+          description: "Get a clear view of the car's past condition with detailed photos of the car's exterior (when available).",
         },
         {
-          title: 'Spot Damage & Accidents',
-          description: 'Uncover past collisions, structural repairs, flood damage, and insurance claims.',
+          title: 'Spot damage and write-offs',
+          description: 'We check over 330 million records to show you where and when the damage occurred, and what the repairs might\'ve cost.',
         },
         {
-          title: 'Theft Check',
-          description: 'Verify the vehicle against international stolen vehicle databases including Interpol.',
+          title: 'Detect stolen vehicles',
+          description: "Hakiki's Theft data shows you whether a car has been flagged as stolen, giving you the peace of mind you need.",
+        },
+        {
+          title: 'Verify actual mileage',
+          description: 'Easily verify a vehicle\'s mileage, backed by data from 1000+ trusted sources across 45 countries.',
         },
         {
           title: 'Ownership History',
           description: 'See how many owners the car has had and whether it was used privately or commercially.',
-        },
-        {
-          title: 'Title & Registration',
-          description: 'Check for salvage titles, rebuilt status, liens, and registration history across countries.',
         },
         {
           title: 'Full Specifications',
@@ -200,24 +200,24 @@ export const translations = {
       sectionSubtitle: "Kila ripoti ya Hakiki inachanganua data nyingi ili kukupa picha kamili kabla hujafanya uamuzi.",
       items: [
         {
-          title: 'Uhakiki Halisi wa Maileji',
-          description: 'Gundua udanganyifu wa mita ukitumia rekodi za kihistoria za matengenezo na ukaguzi.',
+          title: 'Tazama picha halisi',
+          description: 'Pata picha halisi za gari zilivyokuwa huko nyuma ili ujue hali yake ya nje kabla ya kununua.',
         },
         {
-          title: 'Gundua Ajali na Uharibifu',
-          description: 'Fichua mivutano ya zamani, matengenezo makubwa, uharibifu wa maji mafuriko, na madai ya bima.',
+          title: 'Gundua ajali na uharibifu',
+          description: 'Tunakagua zaidi ya rekodi milioni 330 kukuonyesha wapi na lini uharibifu ulitokea na gharama za matengenezo.',
         },
         {
-          title: 'Uhakiki wa Wizi',
-          description: 'Hakiki gari kwenye kanzidata za kimataifa za magari yaliyoibiwa ikiwemo Interpol.',
+          title: 'Tambua magari yaliyoibiwa',
+          description: 'Data za wizi za Hakiki hukuonyesha kama gari limeripotiwa kuibiwa mahali popote duniani.',
+        },
+        {
+          title: 'Uhakiki halisi wa maileji',
+          description: 'Hakiki maileji ya gari kwa urahisi, tukitumia data kutoka vyanzo zaidi ya 1000 katika nchi 45 tofauti.',
         },
         {
           title: 'Historia ya Umiliki',
           description: 'Tazama gari limekuwa na wamiliki wangapi na kama lilitumika kibinafsi au kibiashara.',
-        },
-        {
-          title: 'Usajili na Umiliki',
-          description: 'Angalia hati miliki chafu, hali ya kuundwa upya, mikopo, na historia ya usajili.',
         },
         {
           title: 'Sifa Kamili za Kiufundi',

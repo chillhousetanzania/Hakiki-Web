@@ -1,0 +1,108 @@
+.timelineContainer {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.timelineTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2rem;
+}
+
+.timelineList {
+  display: flex;
+  flex-direction: column;
+}
+
+.eventItem {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.markerColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.iconMarker {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  color: #64748b;
+  flex-shrink: 0;
+  z-index: 2;
+  border: 4px solid white;
+  box-shadow: 0 0 0 1px #e2e8f0;
+}
+
+.registration { background: #dcfce7; color: #16a34a; }
+.accident { background: #fee2e2; color: #ef4444; }
+.inspection { background: #eff6ff; color: #3b82f6; }
+.sale { background: #fef3c7; color: #d97706; }
+.import { background: #f3e8ff; color: #a855f7; }
+
+.verticalLine {
+  width: 2px;
+  background: #e2e8f0;
+  flex: 1;
+  margin: 4px 0;
+}
+
+.contentColumn {
+  padding-bottom: 2.5rem;
+  flex: 1;
+}
+
+.eventHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.eventDate {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0ea5e9;
+  text-transform: uppercase;
+}
+
+.eventCountry {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #64748b;
+  background: #f8fafc;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+}
+
+.eventTitle {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.eventDesc {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .timelineContainer {
+    padding: 1.5rem 1rem;
+  }
+  .eventItem {
+    gap: 1rem;
+  }
+}

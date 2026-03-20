@@ -7,6 +7,12 @@ export const metadata: Metadata = {
   keywords: ['vehicle history', 'car check', 'Tanzania', 'VIN check', 'used car', 'mileage verification'],
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export default function RootLayout({
   children,
 }: {

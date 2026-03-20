@@ -1,0 +1,133 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: white;
+  padding: 1rem;
+  width: 100%;
+}
+
+.alertBanner {
+  display: flex;
+  gap: 1rem;
+  background: #fef2f2;
+  border-left: 4px solid #ef4444;
+  padding: 1.25rem;
+  border-radius: 8px;
+}
+
+.alertIcon {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.alertBanner h4 {
+  margin: 0 0 0.25rem;
+  color: #991b1b;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.alertBanner p {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.chartWrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 250px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.chartSvg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.pointGroup {
+  transition: all 0.3s;
+}
+
+.pointLabel {
+  font-size: 11px;
+  font-weight: 800;
+  fill: #64748b;
+}
+
+.mileageLabel {
+  font-size: 10px;
+  font-weight: 700;
+  fill: #0f172a;
+}
+
+.anomalousPath {
+  animation: pulseRed 2s infinite;
+}
+
+@keyframes pulseRed {
+  0% { stroke-opacity: 1; }
+  50% { stroke-opacity: 0.5; }
+  100% { stroke-opacity: 1; }
+}
+
+.statsRow {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.statBox {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  color: #166534;
+}
+
+.statBox span {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.statBox strong {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.statBoxRed {
+  background: #fff1f2;
+  border-color: #fecdd3;
+  color: #991b1b;
+}
+
+@media (max-width: 600px) {
+  .statBox {
+    min-width: 100%;
+    padding: 1rem;
+  }
+  .alertBanner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .statsRow {
+    gap: 1rem;
+  }
+}

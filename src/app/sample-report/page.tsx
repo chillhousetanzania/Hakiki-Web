@@ -1,15 +1,28 @@
 'use client'
 
 import Navbar from '@/components/Navbar'
+import Image from 'next/image'
 import { CheckCircle2, AlertTriangle, ShieldCheck, MapPin, Camera, Activity, FileText, Info } from 'lucide-react'
 import { useLanguageStore } from '@/store/languageStore'
 import { useState, useEffect } from 'react'
+import VehicleDamageExplorer from '@/components/Report/VehicleDamageExplorer'
+import MileageRollbackExplorer, { MileageReading } from '@/components/Report/MileageRollbackExplorer'
+import HistoricalTimeline, { TimelineEvent } from '@/components/Report/HistoricalTimeline'
+import TheftCheckGrid from '@/components/Report/TheftCheckGrid'
+import HakikiInsights from '@/components/Report/HakikiInsights'
+import MarketValueCalculator from '@/components/Report/MarketValueCalculator'
 import styles from './sample-report.module.css'
 
 export default function SampleReportPage() {
   const { language } = useLanguageStore()
-  const isEn = language === 'en'
+  const [mounted, setMounted] = useState(false)
   const [activeSegment, setActiveSegment] = useState('summary')
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const isEn = !mounted || language === 'en'
 
   const carData = {
     make: 'Toyota',
@@ -20,6 +33,72 @@ export default function SampleReportPage() {
     transmission: 'Automatic',
     drive: '4x4',
   }
+
+  const damageRecords = [
+    { part: 'rearBumper', level: 'minor' as const },
+    { part: 'tailgate', level: 'minor' as const },
+  ]
+
+  const mileageReadings: MileageReading[] = [
+    { date: '2019-05-15', mileage: 34200 },
+    { date: '2021-08-10', mileage: 82150 },
+    { date: '2023-11-20', mileage: 141800 },
+    { date: '2024-03-01', mileage: 52400 }, // ROLLBACK!
+  ]
+
+  const timelineEvents: TimelineEvent[] = [
+    {
+      date: '2018-02-10',
+      type: 'registration',
+      title: isEn ? 'First Registration' : 'Usajili wa Kwanza',
+      description: isEn ? 'Vehicle first registered for road use.' : 'Gari lilisajiliwa kwa mara ya kwanza kutumika barabarani.',
+      location: 'Nagoya',
+      countryCode: 'JP'
+    },
+    {
+      date: '2021-10-15',
+      type: 'accident',
+      title: isEn ? 'Minor Accident Recorded' : 'Ajali Ndogo Imerekodiwa',
+      description: isEn ? 'Rear-end collision reported. Vehicle remained functional.' : 'Mgongano wa nyuma umeripotiwa. Gari liliendelea kufanya kazi.',
+      location: 'Osaka',
+      countryCode: 'JP'
+    },
+    {
+      date: '2023-08-05',
+      type: 'import',
+      title: isEn ? 'Exported for Sale' : 'Liliuzwa Kwenda Nje',
+      description: isEn ? 'Export certificate issued. Preparing for transport.' : 'Cheti cha kuuzwa nje kilitolewa. Maandalizi ya usafirishaji.',
+      location: 'Yokohama',
+      countryCode: 'JP'
+    },
+    {
+      date: '2023-10-12',
+      type: 'registration',
+      title: isEn ? 'Registration in Tanzania' : 'Usajili Tanzania',
+      description: isEn ? 'Vehicle imported and assigned local registration plates.' : 'Gari liliingizwa na kupewa namba za usajili za hapa nchini.',
+      location: 'Dar es Salaam',
+      countryCode: 'TZ'
+    },
+    {
+      date: '2024-03-01',
+      type: 'inspection',
+      title: isEn ? 'Technical Inspection' : 'Uhakiki wa Kiufundi',
+      description: isEn ? 'Annual inspection performed. Odometer rollback detected.' : 'Uhakiki wa mwaka ulifanyika. Udanganyifu wa kilometa ulitambulika.',
+      location: 'Dar es Salaam',
+      countryCode: 'TZ'
+    }
+  ]
+
+  const theftChecks = [
+    { code: 'JP', name: 'Japan', status: 'clear' as const },
+    { code: 'TZ', name: 'Tanzania', status: 'clear' as const },
+    { code: 'UK', name: 'United Kingdom', status: 'clear' as const },
+    { code: 'US', name: 'United States', status: 'clear' as const },
+    { code: 'AE', name: 'UAE', status: 'clear' as const },
+    { code: 'ZA', name: 'South Africa', status: 'clear' as const },
+    { code: 'KE', name: 'Kenya', status: 'clear' as const },
+    { code: 'DE', name: 'Germany', status: 'clear' as const },
+  ]
 
   return (
     <main className={styles.main}>
@@ -41,8 +120,8 @@ export default function SampleReportPage() {
 
       {/* STICKY SEGMENT NAV */}
       <div className={styles.segmentNavWrap}>
-        <div className={`container ${styles.segmentNav}`}>
-          {['summary', 'mileage', 'damage', 'specs', 'photos'].map((seg) => (
+        <div className={styles.segmentNav}>
+          {['summary', 'mileage', 'damage', 'specs', 'photos', 'timeline'].map((seg) => (
             <button 
               key={seg} 
               className={`${styles.segBtn} ${activeSegment === seg ? styles.activeSeg : ''}`}
@@ -71,7 +150,7 @@ export default function SampleReportPage() {
                 <div className={styles.statusBoxIcon}><ShieldCheck size={24} /></div>
                 <div className={styles.statusBoxText}>
                    <h3>{isEn ? 'Theft Records' : 'Rekodi za Wizi'}</h3>
-                   <span className={styles.statusOk}>{isEn ? 'Clear (Checked 5 databases)' : 'Salama (Zimekaguliwa kanzidata 5)'}</span>
+                   <span className={styles.statusOk}>{isEn ? 'Clear (Checked 8 databases)' : 'Salama (Zimekaguliwa kanzidata 8)'}</span>
                 </div>
               </div>
 
@@ -98,8 +177,12 @@ export default function SampleReportPage() {
                    <span className={styles.statusOk}>{isEn ? 'No commercial use found' : 'Hakuna matumizi ya kibiashara'}</span>
                 </div>
               </div>
-
             </div>
+          </section>
+
+          {/* THEFT CHECK GRID */}
+          <section id="section-theft">
+            <TheftCheckGrid checks={theftChecks} language={isEn ? 'en' : 'sw'} />
           </section>
 
           {/* MILEAGE MODULE */}
@@ -108,25 +191,24 @@ export default function SampleReportPage() {
                 <AlertTriangle size={24} className={styles.iconRed} />
                 <h2>{isEn ? 'Mileage Rollback Detected' : 'Wizi wa Maileji Umegundulika'}</h2>
              </div>
-             <p className={styles.moduleDesc}>
-               {isEn 
-                 ? 'We found a discrepancy in the vehicle\'s odometer readings. The actual mileage is significantly higher than what may be shown on the dashboard.' 
-                 : 'Tumegundua tofauti kwenye usomaji wa maileji ya gari. Maileji halisi ni makubwa zaidi kuliko inavyoonekana.'}
-             </p>
-
-             <div className={styles.mileageChartMock}>
-               <div className={styles.chartLine}>
-                  <div className={styles.pointG} style={{ left: '10%', bottom: '20%' }}><span>2019<br/>34k km</span></div>
-                  <div className={styles.pointG} style={{ left: '40%', bottom: '50%' }}><span>2021<br/>82k km</span></div>
-                  <div className={styles.pointR} style={{ left: '70%', bottom: '90%' }}><span>2023<br/>141k km</span></div>
-                  <div className={styles.pointWarn} style={{ left: '90%', bottom: '30%' }}><span>2024<br/>52k km (Fake)</span></div>
-                  <svg className={styles.chartSvg}>
-                    <polyline points="0,160 80,160 320,100 560,20 720,140 800,140" fill="none" stroke="#e2e8f0" strokeWidth="4" />
-                    <polyline points="0,160 80,160 320,100 560,20" fill="none" stroke="#22c55e" strokeWidth="4" />
-                    <polyline points="560,20 720,140 800,140" fill="none" stroke="#ef4444" strokeLinecap="round" strokeDasharray="10,10" strokeWidth="4" />
-                  </svg>
-               </div>
-             </div>
+             
+             <MileageRollbackExplorer readings={mileageReadings} language={isEn ? 'en' : 'sw'} />
+             
+             <MarketValueCalculator 
+               make={carData.make}
+               model={carData.model}
+               year={carData.year}
+               estimatedValueRange={[86000000, 95000000]}
+               language={isEn ? 'en' : 'sw'}
+             />
+             
+             <HakikiInsights 
+               title={isEn ? 'Insight: Abnormal Usage Pattern' : 'Ushauri: Mwenendo Isiyo ya Kawaida'}
+               content={isEn 
+                 ? "The mileage dropped by 89,400 km in 2024. This is a common tactic to increase the vehicle's resale value. Buying a 'clocked' car means higher maintenance costs and lower safety." 
+                 : "Kilometa zilipungua kwa 89,400 mnamo 2024. Hii ni mbinu ya kawaida kuongeza thamani ya gari wakati wa kuuza. Kununua gari lililochezewa inamaanisha gharama kubwa za matengenezo na usalama mdogo."}
+               language={isEn ? 'en' : 'sw'}
+             />
           </section>
 
           {/* DAMAGE MODULE */}
@@ -137,13 +219,7 @@ export default function SampleReportPage() {
              </div>
              
              <div className={styles.damageFlex}>
-               <div className={styles.damageCarMock}>
-                 {/* Top Down Car Blueprint Mock */}
-                 <div className={styles.blueprintBody}>
-                   <div className={styles.zoneFront}></div>
-                   <div className={styles.zoneRearHit}></div>
-                 </div>
-               </div>
+               <VehicleDamageExplorer damageRecords={damageRecords} />
                <div className={styles.damageList}>
                   <div className={styles.damageEvent}>
                      <div className={styles.dmgDate}>October 2021 • Japan</div>
@@ -155,6 +231,19 @@ export default function SampleReportPage() {
                   </div>
                </div>
              </div>
+
+             <HakikiInsights 
+               title={isEn ? 'Insight: Secondary Impact Potential' : 'Ushauri: Uwezekano wa Athari za Sekondari'}
+               content={isEn 
+                 ? "The rear-end impact was minor, but it can affect the parking sensors and trunk alignment over time. Ensure these are verified during inspection." 
+                 : "Mgongano wa nyuma ulikuwa mdogo, lakini unaweza kuathiri 'parking sensors' na mpangilio wa mlango wa nyuma kwa muda mrefu. Hakikisha hivi vinakaguliwa wakati wa uhakiki."}
+               language={isEn ? 'en' : 'sw'}
+             />
+          </section>
+
+          {/* TIMELINE MODULE */}
+          <section id="section-timeline">
+            <HistoricalTimeline events={timelineEvents} language={isEn ? 'en' : 'sw'} />
           </section>
 
           {/* PHOTOS MODULE */}
@@ -164,10 +253,22 @@ export default function SampleReportPage() {
             </div>
             <p className={styles.moduleDesc}>{isEn ? 'Photos retrieved from a Japanese auction house in 2023.' : 'Picha zilizopatikana kutoka mnada wa Japan mwaka 2023.'}</p>
             <div className={styles.photoGrid}>
-               <div className={styles.photoMock}>Front View</div>
-               <div className={styles.photoMock}>Rear View</div>
-               <div className={styles.photoMock}>Interior</div>
-               <div className={styles.photoMock}>Dashboard (Showing 141k km)</div>
+               <div className={styles.photoItem}>
+                 <Image src="/images/auction/front.jpg" alt="Front View" width={300} height={200} unoptimized className={styles.reportPhoto} />
+                 <span>{isEn ? 'Front View' : 'Mbele'}</span>
+               </div>
+               <div className={styles.photoItem}>
+                 <Image src="/images/auction/rear.jpg" alt="Rear View" width={300} height={200} unoptimized className={styles.reportPhoto} />
+                 <span>{isEn ? 'Rear View' : 'Nyuma'}</span>
+               </div>
+               <div className={styles.photoItem}>
+                 <Image src="/images/auction/interior.jpg" alt="Interior" width={300} height={200} unoptimized className={styles.reportPhoto} />
+                 <span>{isEn ? 'Interior' : 'Ndani'}</span>
+               </div>
+               <div className={styles.photoItem}>
+                 <Image src="/images/auction/odometer.jpg" alt="Dashboard" width={300} height={200} unoptimized className={styles.reportPhoto} />
+                 <span>{isEn ? 'Dashboard (141k km)' : 'Dashibodi'}</span>
+               </div>
             </div>
           </section>
 

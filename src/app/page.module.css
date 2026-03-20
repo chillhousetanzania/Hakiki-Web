@@ -28,13 +28,39 @@
 .noVinLink { display: block; width: 100%; text-align: center; padding: 12px; margin-top: var(--space-md); border: 1px solid var(--color-text-heading); border-radius: var(--radius-full); color: var(--color-text-heading); font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: background 0.2s, color 0.2s; }
 .noVinLink:hover { background: var(--color-text-heading); color: white; }
 
-.uncoverSection { margin-top: 40px; }
-.uncoverTitle { font-size: 0.95rem; font-weight: 700; color: var(--color-text-heading); margin-bottom: var(--space-md); }
-.uncoverGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-.uncoverItem { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: var(--color-text-secondary); }
+.uncoverSection { margin-top: 30px; }
+.uncoverTitle { font-size: 0.95rem; font-weight: 700; color: var(--color-text-heading); margin-bottom: var(--space-md); text-align: center; }
+.uncoverGrid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 18px; }
+.uncoverItem { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--color-text-secondary); }
 .uncoverCheck { color: var(--color-primary); flex-shrink: 0; }
-.heroVisual { display: flex; justify-content: center; }
-.heroImage { width: 100%; height: auto; border-radius: var(--radius-lg); animation: fadeUp 0.8s ease-out; }
+.weCheckRow { display: flex; align-items: center; justify-content: center; gap: 12px; color: var(--color-text-secondary); font-size: 0.9rem; margin-top: 24px; opacity: 0.8; }
+.weCheckRow svg { color: var(--color-text-secondary); stroke-width: 1.5; }
+.heroVisual { 
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  position: relative; 
+  padding-top: 40px;
+}
+.heroImage { 
+  width: 100%; 
+  max-width: 600px;
+  height: auto; 
+  border-radius: var(--radius-lg); 
+  animation: fadeUp 0.8s ease-out; 
+}
+.heroDataCards {
+  position: absolute;
+  top: -45%; /* Pushed high into the negative space */
+  right: -5%;
+  width: 95%; /* Slightly larger to fill the sky */
+  height: auto;
+  pointer-events: none;
+  animation: floatData 5s ease-in-out infinite; /* Slower, more premium drift */
+  z-index: 2;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12)); /* Soft 3D lift */
+}
 
 /* ── SHARED COMPONENT STYLES ── */
 .sectionTitle { font-size: 2.25rem; font-weight: 900; color: var(--color-text-heading); text-align: center; margin-bottom: var(--space-sm); }
@@ -111,6 +137,16 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes floatData {
+  0%, 100% { transform: translateY(0) rotate(2deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes floatDataMobile {
+  0%, 100% { transform: translateX(-50%) translateY(0) rotate(2deg); }
+  50% { transform: translateX(-50%) translateY(-15px) rotate(3deg); }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 992px) {
   .heroContent { grid-template-columns: 1fr; text-align: center; }
@@ -119,11 +155,44 @@
   .stepsGrid { grid-template-columns: repeat(2, 1fr); gap: var(--space-2xl) var(--space-xl); }
   .footerGrid { grid-template-columns: 1fr 1fr; gap: var(--space-2xl); }
   .navLinks { display: none; }
+  .heroVisual { 
+    padding-top: 2rem; 
+    min-height: 400px; /* Ensure space for the stack */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .heroImage { 
+    width: 100%; 
+    max-width: 380px; 
+    margin-top: 40px; /* Space for items above */
+  }
+  .heroDataCards { 
+    position: absolute; 
+    width: 120%; 
+    max-width: 520px;
+    top: -50px; /* Overlap top half of the fleet */
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    margin: 0;
+    z-index: 3;
+    display: block;
+    animation: floatDataMobile 4s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+  }
 }
 
 @media (max-width: 768px) {
-  .heroText h1 { font-size: 2.25rem; }
-  .uncoverGrid { grid-template-columns: 1fr; }
+  .hero { padding: 24px 0 32px; }
+  .heroText h1 { font-size: 1.85rem; margin-bottom: 8px; line-height: 1.15; }
+  .heroSubtitle { font-size: 0.95rem; margin-bottom: 16px; line-height: 1.4; }
+  .noVinLink { padding: 10px; margin-top: 12px; font-size: 0.85rem; }
+  .weCheckRow { margin-top: 16px; font-size: 0.8rem; gap: 8px; }
+  .uncoverSection { margin-top: 16px; }
+  .uncoverTitle { margin-bottom: 8px; font-size: 0.8rem; }
+  .uncoverGrid { gap: 6px 12px; }
+  .uncoverItem { font-size: 0.75rem; gap: 4px; }
   .stepsGrid, .supportGrid, .blogGrid { grid-template-columns: 1fr; }
   .bundleInner { padding: 32px 20px; }
   .footerGrid { grid-template-columns: 1fr; }
