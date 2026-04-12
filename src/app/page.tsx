@@ -231,7 +231,7 @@ export default function Home() {
               </div>
 
               {/* Cars Image without background container */}
-              <div className="absolute bottom-[-30px] lg:-bottom-[20px] right-[-10%] lg:right-[-15%] w-[120%] lg:w-[135%] h-[240px] lg:h-[320px] z-10 origin-bottom-right pointer-events-none">
+              <div className="absolute bottom-[-30px] lg:-bottom-[20px] right-[-10%] lg:right-[-5%] w-[120%] lg:w-[135%] h-[240px] lg:h-[320px] z-10 origin-bottom-right pointer-events-none">
                 <Image
                   src="/hero-cars-v5.png"
                   alt="CarHakiki Featured Vehicles"
