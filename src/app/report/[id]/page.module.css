@@ -318,6 +318,17 @@
   margin-right: auto;
 }
 
+/* Carfax pending banner */
+.carfaxPendingBanner {
+  background: #FF9100;
+  color: #fff;
+  padding: 14px 24px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .reportHeader {

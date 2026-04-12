@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar'
 import { Check, Building, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import styles from './b2b-pricing.module.css'
 
@@ -41,7 +42,7 @@ export default function B2BPricingPage() {
       <Navbar />
 
       <section className={styles.headerSection}>
-        <div className="container text-center">
+        <div className="container center-text">
           <div className={styles.badge}>{isEn ? 'Corporate Pricing' : 'Bei za Mashirika'}</div>
           <h1 className={styles.title}>
             {isEn ? 'Bulk reports. Bigger margins.' : 'Ripoti nyingi. Faida kubwa zaidi.'}
@@ -76,9 +77,9 @@ export default function B2BPricingPage() {
                   <li><Check size={18} className={styles.checkIcon} /> {isEn ? 'Credits never expire' : 'Salio haliishi muda wake'}</li>
                 </ul>
               </div>
-              <a href="/contact" className={tier.popular ? styles.btnPrimary : styles.btnSecondary}>
+              <Link href="/contact" className={tier.popular ? styles.btnPrimary : styles.btnSecondary}>
                 {isEn ? 'Buy Credits' : 'Nunua Salio'}
-              </a>
+              </Link>
             </div>
           ))}
         </div>
@@ -90,15 +91,15 @@ export default function B2BPricingPage() {
             <h2>{isEn ? 'Need more than 1,000 reports a month?' : 'Unahitaji ripoti zaidi ya 1,000 kwa mwezi?'}</h2>
             <p>{isEn ? 'We offer custom enterprise contracts for major insurance firms, national dealership networks, and API aggregators.' : 'Tunatoa mikataba maalum kwa makampuni makubwa.'}</p>
           </div>
-          <a href="/contact" className={styles.ctaContact}>
+          <Link href="/contact" className={styles.ctaContact}>
             <Building size={20} />
             {isEn ? 'Contact Sales' : 'Wasiliana na Mauzo'} <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki B2B Pricing.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki B2B Pricing.</div>
       </footer>
     </main>
   )

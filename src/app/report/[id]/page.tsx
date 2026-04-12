@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState, Suspense } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useParams } from 'next/navigation'
 import {
   Shield, ArrowLeft, CheckCircle, XCircle, AlertTriangle,
   Gauge, Car, Calendar, MapPin, Settings, Fuel, Download,
@@ -28,6 +28,7 @@ interface ReportData {
     airbagDeployment: boolean; odometerRollback: boolean;
   }
   dataSource: string
+  carfax_pending?: boolean
   generatedAt: string
 }
 
@@ -69,51 +70,50 @@ function StatusItem({ label, ok, detail }: { label: string; ok: boolean; detail?
 
 function ReportContent() {
   const router = useRouter()
-  const searchParams = useSearchParams()
+  const params = useParams()
+  const reportId = params.id as string
   const [report, setReport] = useState<ReportData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
   useEffect(() => {
-    const vin = searchParams.get('vin')
-    const orderId = searchParams.get('orderId')
-
-    if (!vin) {
-      setError('No VIN provided')
+    if (!reportId) {
+      setError('No report ID provided')
       setLoading(false)
       return
     }
 
-    async function generateReport() {
+    async function loadReport() {
       try {
-        const res = await fetch('/api/report/generate', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ vin, orderId }),
-        })
+        const res = await fetch(`/api/report/${reportId}`)
+        if (res.status === 404) {
+          setError('Report not found')
+          setLoading(false)
+          return
+        }
         if (!res.ok) {
           const data = await res.json()
-          throw new Error(data.error || 'Report generation failed')
+          throw new Error(data.error || 'Failed to load report')
         }
         const data = await res.json()
         setReport(data)
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to generate report')
+        setError(err instanceof Error ? err.message : 'Failed to load report')
       } finally {
         setLoading(false)
       }
     }
 
-    generateReport()
-  }, [searchParams])
+    loadReport()
+  }, [reportId])
 
   if (loading) {
     return (
       <div className={styles.loadingPage}>
         <div className={styles.loadingContent}>
           <div className="spinner" style={{ width: 40, height: 40 }} />
-          <h2>Generating Your Report...</h2>
-          <p>Checking databases across 150+ countries</p>
+          <h2>Loading Your Report...</h2>
+          <p>Fetching saved vehicle history</p>
         </div>
       </div>
     )
@@ -124,10 +124,10 @@ function ReportContent() {
       <div className={styles.loadingPage}>
         <div className={styles.loadingContent}>
           <AlertTriangle size={48} color="var(--color-warning)" />
-          <h2>Report Error</h2>
-          <p>{error || 'Unable to generate report'}</p>
+          <h2>Report Not Found</h2>
+          <p>{error || 'This report does not exist or has been removed.'}</p>
           <button className="btn-primary" onClick={() => router.push('/')}>
-            Try Again
+            Back to Homepage
           </button>
         </div>
       </div>
@@ -145,12 +145,18 @@ function ReportContent() {
           <button className={styles.backBtn} onClick={() => router.push('/')}>
             <ArrowLeft size={20} /> Home
           </button>
-          <span className={styles.logo}><Shield size={20} /> Hakiki Report</span>
-          <button className="btn-secondary" style={{ padding: '8px 16px', fontSize: '0.85rem' }}>
+          <span className={styles.logo}><Shield size={20} /> CarHakiki Report</span>
+          <button className="btn-secondary" style={{ padding: '8px 16px', fontSize: '0.85rem' }} onClick={() => window.print()}>
             <Download size={16} /> Save PDF
           </button>
         </div>
       </nav>
+
+      {report.carfax_pending && (
+        <div className={styles.carfaxPendingBanner}>
+          Your basic vehicle information is ready. Full history report including accidents, mileage records and theft check will be completed within 24-48 hours.
+        </div>
+      )}
 
       <div className={`container ${styles.reportContainer}`}>
         {/* Report Header */}

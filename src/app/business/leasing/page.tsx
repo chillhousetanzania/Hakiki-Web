@@ -2,13 +2,14 @@
 
 import Navbar from '@/components/Navbar'
 import { Shield, TrendingUp, Clock, Settings, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import styles from './leasing.module.css'
 
 const leasingBenefits = [
-  { icon: <TrendingUp size={24} className={styles.iconCore} />, titleEn: 'Protect residual value', titleSw: 'Linda thamani ya gari', descEn: 'Identify undisclosed accidents that severely drop your fleet\'s resale value before the lease ends.', descSw: 'Tambua ajali zilizofichwa zinazoshusha sana thamani ya mauzo ya gari kabla ya ukodishaji kuisha.' },
-  { icon: <Clock size={24} className={styles.iconCore} />, titleEn: 'Monitor historical mileage', titleSw: 'Fuatilia maileji ya kihistoria', descEn: 'Cross-check actual mileage against lease contract limits. Ensure your lessees aren\'t illegally tampering with the odometer.', descSw: 'Hakiki maileji halisi dhidi ya mikataba ya ukodishaji. Hakikisha hawafanyi udanganyifu.' },
-  { icon: <Settings size={24} className={styles.iconCore} />, titleEn: 'Fleet remarketing', titleSw: 'Uuzaji wa magari ya zamani', descEn: 'When it\'s time to sell your fleet, append a Hakiki Verified report to move units an average of 21% faster at higher margins.', descSw: 'Onyesha ripoti za Hakiki ili kuuza magari kwa bei nzuri na haraka.' },
+  { icon: <TrendingUp size={24} className={styles.iconCore} />, titleEn: 'Protect residual value', titleSw: 'Linda thamani ya gari', descEn: 'Identify undisclosed accidents that severely drop your fleet&apos;s resale value before the lease ends.', descSw: 'Tambua ajali zilizofichwa zinazoshusha sana thamani ya mauzo ya gari kabla ya ukodishaji kuisha.' },
+  { icon: <Clock size={24} className={styles.iconCore} />, titleEn: 'Monitor historical mileage', titleSw: 'Fuatilia maileji ya kihistoria', descEn: 'Cross-check actual mileage against lease contract limits. Ensure your lessees aren&apos;t illegally tampering with the odometer.', descSw: 'Hakiki maileji halisi dhidi ya mikataba ya ukodishaji. Hakikisha hawafanyi udanganyifu.' },
+  { icon: <Settings size={24} className={styles.iconCore} />, titleEn: 'Fleet remarketing', titleSw: 'Uuzaji wa magari ya zamani', descEn: 'When it&apos;s time to sell your fleet, append a CarHakiki Verified report to move units an average of 21% faster at higher margins.', descSw: 'Onyesha ripoti za CarHakiki ili kuuza magari kwa bei nzuri na haraka.' },
 ]
 
 export default function LeasingPage() {
@@ -24,7 +25,7 @@ export default function LeasingPage() {
           <div className={styles.textContent}>
             <div className={styles.eyebrow}>{isEn ? 'For Leasing & Fleet' : 'Kwa Ukodishaji na Meli za Magari'}</div>
             <h1 className={styles.heroTitle}>
-              {isEn ? 'Protect your fleet\'s residual value' : 'Linda thamani ya magari yako ya kukodishwa'}
+              {isEn ? 'Protect your fleet&apos;s residual value' : 'Linda thamani ya magari yako ya kukodishwa'}
             </h1>
             <p className={styles.heroSubtitle}>
               {isEn 
@@ -33,7 +34,7 @@ export default function LeasingPage() {
             </p>
             <div className={styles.btnRow}>
               <a href="#contact" className={styles.btnSolid}>{isEn ? 'Get Fleet Pricing' : 'Pata Bei za Ukodishaji'}</a>
-              <a href="/sample-report" className={styles.btnOutline}>{isEn ? 'View Sample Report' : 'Tazama Ripoti'}</a>
+              <Link href="/sample-report" className={styles.btnOutline}>{isEn ? 'View Sample Report' : 'Tazama Ripoti'}</Link>
             </div>
           </div>
           
@@ -75,14 +76,14 @@ export default function LeasingPage() {
         <div className="container">
           <h2>{isEn ? 'Integrate directly into your ERP' : 'Unganisha moja kwa moja kwenye ERP yako'}</h2>
           <p>{isEn ? 'Use our RESTful JSON API to instantly request and retrieve history reports for thousands of vehicles with a single call.' : 'Tumia API yetu ya msimbo kuomba na kupata ripoti za historia kwa maelfu ya magari kwa wakati mmoja.'}</p>
-          <a href="/business/api-integration" className={styles.apiLink}>
+          <Link href="/business/api-integration" className={styles.apiLink}>
             {isEn ? 'Explore API Documentation' : 'Chunguza Nyaraka za API'} <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki B2B.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki B2B.</div>
       </footer>
     </main>
   )

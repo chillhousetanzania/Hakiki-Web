@@ -11,8 +11,8 @@ export default function TermsPage() {
     <LegalLayout title={isEn ? 'Terms of Service' : 'Vigezo na Masharti'}>
       <p>
         {isEn 
-          ? 'These Terms of Service ("Terms") govern your access to and use of the Hakiki website, services, and applications (collectively, the "Service"). Please read them carefully before using our platform.'
-          : 'Vigezo na Masharti haya ("Vigezo") vinatawala ufikiaji na matumizi yako ya tovuti, huduma, na programu za Hakiki ("Huduma"). Tafadhali soma kwa uangalifu kabla ya kutumia jukwaa letu.'}
+          ? 'These Terms of Service ("Terms") govern your access to and use of the CarHakiki website, services, and applications (collectively, the "Service"). Please read them carefully before using our platform.'
+          : 'Vigezo na Masharti haya ("Vigezo") vinatawala ufikiaji na matumizi yako ya tovuti, huduma, na programu za CarHakiki ("Huduma"). Tafadhali soma kwa uangalifu kabla ya kutumia jukwaa letu.'}
       </p>
 
       <h2>{isEn ? '1. Acceptance of Terms' : '1. Kukubali Vigezo'}</h2>
@@ -25,8 +25,8 @@ export default function TermsPage() {
       <h2>{isEn ? '2. Services Provided' : '2. Huduma Zinazotolewa'}</h2>
       <p>
         {isEn 
-          ? 'Hakiki provides vehicle history reports aggregated from third-party sources globally. We act as an intermediary, querying multiple databases including police records, insurance registries, and auction data. We do not guarantee the completeness or absolute accuracy of any report, as we rely entirely on the data supplied by these external sources.'
-          : 'Hakiki inatoa ripoti za historia ya gari zilizokusanywa kutoka vyanzo vya wahusika wengine ulimwenguni kote. Hatuhakikishi ukamilifu au usahihi kamili wa ripoti yoyote.'}
+          ? 'CarHakiki provides vehicle history reports aggregated from third-party sources globally. We act as an intermediary, querying multiple databases including police records, insurance registries, and auction data. We do not guarantee the completeness or absolute accuracy of any report, as we rely entirely on the data supplied by these external sources.'
+          : 'CarHakiki inatoa ripoti za historia ya gari zilizokusanywa kutoka vyanzo vya wahusika wengine ulimwenguni kote. Hatuhakikishi ukamilifu au usahihi kamili wa ripoti yoyote.'}
       </p>
 
       <h2>{isEn ? '3. User Accounts' : '3. Akaunti za Watumiaji'}</h2>
@@ -46,8 +46,8 @@ export default function TermsPage() {
       <h2>{isEn ? '5. Limitation of Liability' : '5. Kikomo cha Dhima'}</h2>
       <p>
         {isEn 
-          ? 'To the maximum extent permitted by applicable law, Hakiki shall not be liable for any indirect, incidental, special, consequential or punitive damages, including loss of profits, data, or goodwill, arising from your reliance on the information provided in our vehicle history reports.'
-          : 'Kwa kiwango cha juu kinachoruhusiwa na sheria, Hakiki haitawajibika kwa uharibifu wowote wa moja kwa moja au usio wa moja kwa moja unaotokana na kutegemea kwako ripoti zetu.'}
+          ? 'To the maximum extent permitted by applicable law, CarHakiki shall not be liable for any indirect, incidental, special, consequential or punitive damages, including loss of profits, data, or goodwill, arising from your reliance on the information provided in our vehicle history reports.'
+          : 'Kwa kiwango cha juu kinachoruhusiwa na sheria, CarHakiki haitawajibika kwa uharibifu wowote wa moja kwa moja au usio wa moja kwa moja unaotokana na kutegemea kwako ripoti zetu.'}
       </p>
     </LegalLayout>
   )

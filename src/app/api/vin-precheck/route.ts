@@ -1,9 +1,21 @@
 import { NextResponse } from 'next/server'
 import { decodeVin } from '@/lib/api/nhtsa'
 import { detectVinFormat, detectDataSource } from '@/lib/api/vin-utils'
+import { rateLimit } from '@/lib/rate-limit'
 
 export async function POST(request: Request) {
   try {
+    // Rate limiting — 15 requests per minute per IP
+    const forwarded = request.headers.get('x-forwarded-for')
+    const ip = forwarded?.split(',')[0]?.trim() || 'unknown'
+    const { allowed } = rateLimit(ip, 15, 60000)
+    if (!allowed) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please wait a moment and try again.' },
+        { status: 429 }
+      )
+    }
+
     const { vin } = await request.json()
 
     if (!vin || typeof vin !== 'string') {

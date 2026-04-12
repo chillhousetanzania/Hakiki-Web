@@ -64,11 +64,11 @@ export default function BlogPostPage() {
                 
                 <h2>The Hidden Dangers of Odometer Fraud</h2>
                 <p>
-                  Odometer rollbacks are perhaps the most common scam. A vehicle might display 60,000 kilometers on the dashboard, but its true mileage could be over 150,000 kilometers. By paying a premium for a "low mileage" car, buyers not only lose money upfront but also inherit unexpected maintenance costs.
+                  Odometer rollbacks are perhaps the most common scam. A vehicle might display 60,000 kilometers on the dashboard, but its true mileage could be over 150,000 kilometers. By paying a premium for a &quot;low mileage&quot; car, buyers not only lose money upfront but also inherit unexpected maintenance costs.
                 </p>
 
                 <div className={styles.ctaInsert}>
-                   <h3>{isEn ? 'Don\'t guess. Check the VIN.' : 'Usikate tamaa. Angalia VIN.'}</h3>
+                   <h3>{isEn ? 'Don&apos;t guess. Check the VIN.' : 'Usikate tamaa. Angalia VIN.'}</h3>
                    <p>{isEn ? 'Get a full history report in seconds.' : 'Pata ripoti kamili ya historia kwa sekunde chache.'}</p>
                    <div className={styles.vinSearchMock}>
                       <input type="text" placeholder="Enter VIN number..." className={styles.vinInput} disabled />
@@ -78,7 +78,7 @@ export default function BlogPostPage() {
 
                 <h2>How to Identify Structural Damage</h2>
                 <p>
-                  Structural damage from past accidents is often painted over and hidden from plain sight. If the chassis has been compromised, the car's structural integrity is permanently weakened, making it unsafe to drive. Always look for uneven panel gaps, mismatched paint tones, and signs of welding under the hood.
+                  Structural damage from past accidents is often painted over and hidden from plain sight. If the chassis has been compromised, the car&apos;s structural integrity is permanently weakened, making it unsafe to drive. Always look for uneven panel gaps, mismatched paint tones, and signs of welding under the hood.
                 </p>
 
                 <h3>1. Inspect the Panel Gaps</h3>
@@ -88,7 +88,7 @@ export default function BlogPostPage() {
 
                 <h3>2. Check the Paint Thickness</h3>
                 <p>
-                  While a paint thickness gauge is the best tool, you can often spot repainted sections by looking at the car under fluorescent light. Look out for "orange peel" textures or slight variations in the shade of the paint.
+                  While a paint thickness gauge is the best tool, you can often spot repainted sections by looking at the car under fluorescent light. Look out for &quot;orange peel&quot; textures or slight variations in the shade of the paint.
                 </p>
 
                 <hr className={styles.divider} />
@@ -97,7 +97,7 @@ export default function BlogPostPage() {
                    <div className={styles.authorAvatar}>MB</div>
                    <div className={styles.authorInfo}>
                       <h4>Matas Buzelis</h4>
-                      <p>Automotive Expert & Head of Communications at Hakiki. Matas has over a decade of experience in the automotive industry and is passionate about bringing transparency to the used car market.</p>
+                      <p>Automotive Expert & Head of Communications at CarHakiki. Matas has over a decade of experience in the automotive industry and is passionate about bringing transparency to the used car market.</p>
                    </div>
                 </div>
              </div>
@@ -106,9 +106,9 @@ export default function BlogPostPage() {
                 <div className={styles.stickyWidget}>
                    <h3>{isEn ? 'Protect your investment.' : 'Linda uwekezaji wako.'}</h3>
                    <p>{isEn ? 'Avoid bad deals. Get a comprehensive vehicle history report today.' : 'Epuka matapeli. Kagua historia ya gari kabla hujanunua.'}</p>
-                   <a href="/no-vin" className={styles.sidebarBtn}>
+                   <Link href="/no-vin" className={styles.sidebarBtn}>
                      {isEn ? 'Check Car History' : 'Kagua Historia Kwanza'} <ArrowRight size={16} />
-                   </a>
+                   </Link>
                 </div>
              </aside>
           </div>
@@ -117,7 +117,7 @@ export default function BlogPostPage() {
       </article>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Blog.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki Blog.</div>
       </footer>
     </main>
   )

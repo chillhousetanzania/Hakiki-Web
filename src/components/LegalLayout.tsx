@@ -52,7 +52,7 @@ export default function LegalLayout({ children, title }: { children: React.React
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Legal.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki Legal.</div>
       </footer>
     </main>
   )

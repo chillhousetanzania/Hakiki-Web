@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar'
 import { Video, Gift, Trophy, Star, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import styles from './influencers.module.css'
 
@@ -27,11 +28,11 @@ export default function InfluencersPage() {
               {isEn ? 'For Youtube & Social Creators' : 'Kwa Waumbaji wa Youtube'}
             </div>
             <h1 className={styles.heroTitle}>
-              {isEn ? 'Become a Hakiki Brand Ambassador' : 'Kuwa Balozi wa Chapa ya Hakiki'}
+              {isEn ? 'Become a CarHakiki Brand Ambassador' : 'Kuwa Balozi wa Chapa ya CarHakiki'}
             </h1>
             <p className={styles.heroSubtitle}>
               {isEn 
-                ? 'Do you create content about cars, mechanics, or buying advice? Partner with Africa\'s leading vehicle data provider. Give your audience amazing discounts while generating a stellar income stream.'
+                ? 'Do you create content about cars, mechanics, or buying advice? Partner with Africa&apos;s leading vehicle data provider. Give your audience amazing discounts while generating a stellar income stream.'
                 : 'Unaunda maudhui kuhusu magari? Shirikiana na mtoaji mkuu wa data barani Afrika. Wape watazamaji wako punguzo huku ukitengeneza kipato.'}
             </p>
             <div className={styles.ctaRow}>
@@ -57,8 +58,8 @@ export default function InfluencersPage() {
               </div>
               <div className={styles.ytDescription}>
                 <span className={styles.sponsorDrop}>
-                  {isEn ? 'Get 20% OFF your Hakiki History Report:' : 'Pata Punguzo la 20% kwa Ripoti ya Hakiki:'} 
-                  <br />👉 <strong>hakiki.co.tz/AUTOVLOG20</strong>
+                  {isEn ? 'Get 20% OFF your CarHakiki History Report:' : 'Pata Punguzo la 20% kwa Ripoti ya CarHakiki:'} 
+                  <br />👉 <strong>carhakiki.co.tz/AUTOVLOG20</strong>
                 </span>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit...
               </div>
@@ -93,22 +94,37 @@ export default function InfluencersPage() {
             </ul>
           </div>
           <div className={styles.reqAction}>
-            <p>{isEn ? 'Sound like you? Let\'s talk.' : 'Je, inakufaa? Tuongee.'}</p>
-            <a href="/contact" className={styles.outlineBtn}>{isEn ? 'Send us a message' : 'Tuma ujumbe'} <ArrowRight size={18} /></a>
+            <p>{isEn ? 'Sound like you? Let&apos;s talk.' : 'Je, inakufaa? Tuongee.'}</p>
+            <Link href="/contact" className={styles.outlineBtn}>{isEn ? 'Send us a message' : 'Tuma ujumbe'} <ArrowRight size={18} /></Link>
           </div>
         </div>
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Brands & Sponsorships.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki Brands & Sponsorships.</div>
       </footer>
     </main>
   )
 }
 
-function CheckCircle(props: any) {
+interface CheckCircleProps extends React.SVGProps<SVGSVGElement> {
+  size?: number | string;
+}
+
+function CheckCircle({ size = 24, ...props }: CheckCircleProps) {
   return (
-    <svg {...props} xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg 
+      {...props} 
+      xmlns="http://www.w3.org/2000/svg" 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+    >
       <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
       <polyline points="22 4 12 14.01 9 11.01" />
     </svg>

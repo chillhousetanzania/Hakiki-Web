@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar'
 import { CheckCircle2, ShieldCheck, Zap } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import styles from './pricing.module.css'
 
@@ -41,7 +42,7 @@ export default function PricingPage() {
       <Navbar />
 
       <section className={styles.heroSection}>
-        <div className="container text-center">
+        <div className="container center-text">
           <h1 className={styles.title}>
             {isEn ? 'Transparent pricing. No hidden fees.' : 'Bei za wazi. Hakuna ada zilizofichwa.'}
           </h1>
@@ -69,9 +70,9 @@ export default function PricingPage() {
               </div>
 
               <div className={styles.btnWrapper}>
-                <a href="/no-vin" className={tier.popular ? styles.buyBtnPopular : styles.buyBtn}>
+                <Link href="/no-vin" className={tier.popular ? styles.buyBtnPopular : styles.buyBtn}>
                   {isEn ? 'Get Reports' : 'Pata Ripoti'}
-                </a>
+                </Link>
               </div>
 
               <div className={styles.divider}></div>
@@ -108,7 +109,7 @@ export default function PricingPage() {
       <footer className={styles.footerSimple}>
         <div className="container">
            {isEn ? 'Need enterprise pricing? ' : 'Unahitaji bei za biashara? '}
-           <a href="/business/b2b-pricing" className={styles.footerLink}>{isEn ? 'Go to B2B Pricing' : 'Nenda kwenye Bei za B2B'}</a>
+           <Link href="/business/b2b-pricing" className={styles.footerLink}>{isEn ? 'Go to B2B Pricing' : 'Nenda kwenye Bei za B2B'}</Link>
         </div>
       </footer>
     </main>

@@ -1,7 +1,20 @@
 // GlobalVIN API Client
-// Docs: https://www.globalvin.co/api
-// Cost: $3.00 per CARFAX Standard report
-// Auth: Email/Password → JWT token
+// Docs: https://globalvin.co/dashboard/supplier/api-docs
+// Auth: Email/Password → JWT Bearer token (24h expiry)
+//
+// CONFIRMED ENDPOINTS (from dashboard):
+//   POST /api/auth/login              → Login
+//   GET  /api/vin/basic               → Basic VIN Decode
+//   GET  /api/vin/standard            → Standard VIN Decode
+//   GET  /api/vin/premium             → Premium VIN Decode
+//   GET  /api/usa/report/carfax/:vin  → CARFAX Report (requires approval)
+//
+// ACCOUNT STATUS:
+//   CARFAX Reports: NOT ENABLED (needs approval from GlobalVIN)
+//   VIN Decode API: NOT ENABLED (needs approval from GlobalVIN)
+//   China Reports: APPROVED (3 credits)
+
+const BASE_URL = process.env.GLOBALVIN_API_URL || 'https://api.globalvin.co'
 
 let cachedToken: string | null = null
 let tokenExpiry: number = 0
@@ -9,7 +22,7 @@ let tokenExpiry: number = 0
 async function getToken(): Promise<string> {
   if (cachedToken && Date.now() < tokenExpiry) return cachedToken
 
-  const res = await fetch(`${process.env.GLOBALVIN_API_URL}/auth/login`, {
+  const res = await fetch(`${BASE_URL}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -21,8 +34,14 @@ async function getToken(): Promise<string> {
   if (!res.ok) throw new Error(`GlobalVIN auth failed: ${res.status}`)
 
   const data = await res.json()
-  cachedToken = data.token
-  tokenExpiry = Date.now() + 55 * 60 * 1000 // 55 min
+
+  if (!data.success || !data.data?.token) {
+    throw new Error('GlobalVIN auth: unexpected response format')
+  }
+
+  cachedToken = data.data.token
+  // Token valid for 24h, refresh at 23h to be safe
+  tokenExpiry = Date.now() + 23 * 60 * 60 * 1000
   return cachedToken!
 }
 
@@ -62,23 +81,45 @@ export interface GlobalVinReport {
 export async function fetchGlobalVinReport(vin: string): Promise<GlobalVinReport> {
   const token = await getToken()
 
-  const res = await fetch(`${process.env.GLOBALVIN_API_URL}/report/carfax-standard`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`,
-    },
-    body: JSON.stringify({ vin }),
-  })
+  // Try CARFAX first (USA reports), fall back to standard VIN decode
+  let data = null
 
-  if (!res.ok) {
-    const errBody = await res.text()
-    throw new Error(`GlobalVIN report failed (${res.status}): ${errBody}`)
+  try {
+    // CARFAX report — GET /api/usa/report/carfax/:vin
+    const carfaxRes = await fetch(`${BASE_URL}/api/usa/report/carfax/${vin}`, {
+      headers: { 'Authorization': `Bearer ${token}` },
+    })
+
+    if (carfaxRes.ok) {
+      const carfaxData = await carfaxRes.json()
+      if (carfaxData.success) {
+        data = carfaxData.data
+      }
+    }
+  } catch (err) {
+    console.warn('CARFAX endpoint unavailable, trying VIN decode:', err)
   }
 
-  const data = await res.json()
+  // Fallback to standard VIN decode
+  if (!data) {
+    const vinRes = await fetch(`${BASE_URL}/api/vin/standard?vin=${encodeURIComponent(vin)}`, {
+      headers: { 'Authorization': `Bearer ${token}` },
+    })
 
-  // Normalize the response into our format
+    if (!vinRes.ok) {
+      const errBody = await vinRes.text()
+      throw new Error(`GlobalVIN report failed (${vinRes.status}): ${errBody}`)
+    }
+
+    const vinData = await vinRes.json()
+    data = vinData.data || vinData
+  }
+
+  return normaliseResponse(vin, data)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function normaliseResponse(vin: string, data: any): GlobalVinReport {
   return {
     vin,
     titleRecords: data.titleRecords || data.title_records || [],
@@ -94,12 +135,31 @@ export async function fetchGlobalVinReport(vin: string): Promise<GlobalVinReport
   }
 }
 
-export async function checkCredits(): Promise<number> {
+export async function fetchChinaVinReport(vin: string): Promise<GlobalVinReport> {
   const token = await getToken()
-  const res = await fetch(`${process.env.GLOBALVIN_API_URL}/account/credits`, {
+
+  const res = await fetch(`${BASE_URL}/api/vin/basic?vin=${encodeURIComponent(vin)}`, {
     headers: { 'Authorization': `Bearer ${token}` },
   })
-  if (!res.ok) return 0
+
+  if (!res.ok) {
+    const errBody = await res.text()
+    throw new Error(`GlobalVIN China report failed (${res.status}): ${errBody}`)
+  }
+
+  const vinData = await res.json()
+  return normaliseResponse(vin, vinData.data || vinData)
+}
+
+export async function checkCredits(): Promise<{ cash: number; basic: number }> {
+  const token = await getToken()
+  const res = await fetch(`${BASE_URL}/api/auth/profile`, {
+    headers: { 'Authorization': `Bearer ${token}` },
+  })
+  if (!res.ok) return { cash: 0, basic: 0 }
   const data = await res.json()
-  return data.credits || data.remaining || 0
+  return {
+    cash: data.data?.balance || 0,
+    basic: data.data?.basicCredits || 0,
+  }
 }

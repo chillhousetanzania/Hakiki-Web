@@ -15,16 +15,21 @@ export default function Navbar() {
   const pathname = usePathname()
 
   useEffect(() => {
-    setMounted(true)
+    // Using requestAnimationFrame to ensure the update happens after the initial paint,
+    // avoiding the "cascading renders" synchronous update error.
+    const handle = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(handle)
   }, [])
 
   const isEn = !mounted || language === 'en'
 
-  // Close menus when navigating
-  useEffect(() => {
+  // 2. State resets on navigation (Moved to render phase to avoid cascading renders)
+  const [prevPathname, setPrevPathname] = useState(pathname)
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname)
     setIsMobileMenuOpen(false)
     setOpenDropdown(null)
-  }, [pathname])
+  }
 
   const handleDropdownToggle = (menu: string) => {
     setOpenDropdown(openDropdown === menu ? null : menu)
@@ -39,7 +44,7 @@ export default function Navbar() {
         {/* LOGO */}
         <Link href="/" className={styles.logo} id="nav-logo" onClick={closeDropdown}>
           <Shield size={24} />
-          <span>Hakiki</span>
+          <span>CarHakiki</span>
         </Link>
 
         {/* DESKTOP LINKS */}
@@ -141,7 +146,7 @@ export default function Navbar() {
             <span className={styles.langText}>{isEn ? 'EN' : 'SW'}</span>
           </button>
           
-          <Link href="/" className={styles.loginBtn}>
+          <Link href="/login" className={styles.loginBtn}>
             {isEn ? 'Log In' : 'Ingia'}
           </Link>
 

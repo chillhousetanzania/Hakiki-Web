@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar'
 import { DollarSign, LineChart, Users, ArrowRight, CheckCircle2 } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import styles from './affiliate.module.css'
 
@@ -22,13 +23,13 @@ export default function AffiliatePage() {
       <section className={styles.heroSection}>
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroContent}>
-            <div className={styles.badgeLabel}>{isEn ? 'Hakiki Partner Network' : 'Mtandao wa Washirika wa Hakiki'}</div>
+            <div className={styles.badgeLabel}>{isEn ? 'CarHakiki Partner Network' : 'Mtandao wa Washirika wa CarHakiki'}</div>
             <h1 className={styles.heroTitle}>
               {isEn ? 'Monetize your automotive traffic' : 'Tengeneza pesa kutokana na wageni wako wa magari'}
             </h1>
             <p className={styles.heroSubtitle}>
               {isEn 
-                ? 'Join thousands of publishers, bloggers, and automotive portals earning passive income by recommending Africa\'s most trusted vehicle history reports.'
+                ? 'Join thousands of publishers, bloggers, and automotive portals earning passive income by recommending Africa&apos;s most trusted vehicle history reports.'
                 : 'Jiunge na maelfu ya wanablogu na tovuti za magari wanaotengeneza kipato kwa kupendekeza ripoti zetu.'}
             </p>
             <div className={styles.heroActions}>
@@ -79,7 +80,7 @@ export default function AffiliatePage() {
 
       <section className={styles.benefitsSection}>
         <div className="container">
-          <h2 className={styles.sectionTitle}>{isEn ? 'Why partner with Hakiki?' : 'Kwa nini uwe mshirika wa Hakiki?'}</h2>
+          <h2 className={styles.sectionTitle}>{isEn ? 'Why partner with CarHakiki?' : 'Kwa nini uwe mshirika wa CarHakiki?'}</h2>
           <div className={styles.benefitsGrid}>
             {affiliateBenefits.map((b, i) => (
               <div key={i} className={styles.benefitCard}>
@@ -98,14 +99,14 @@ export default function AffiliatePage() {
             <h2>{isEn ? 'Start earning today' : 'Anza kupata kipato leo'}</h2>
             <p>{isEn ? 'Registration takes 2 minutes. Get instant access to tracking links and creative assets.' : 'Kujiandikisha inachukua dakika 2. Pata ufikiaji wa viungo vyako papo hapo.'}</p>
           </div>
-          <a href="/contact" className={styles.bannerBtn}>
+          <Link href="/contact" className={styles.bannerBtn}>
             {isEn ? 'Create Partner Account' : 'Fungua Akaunti ya Mshirika'} <ArrowRight size={18} />
-          </a>
+          </Link>
         </div>
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Affiliate Network.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki Affiliate Network.</div>
       </footer>
     </main>
   )

@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar'
 import { Shield, Search, FileText, Zap, ChevronRight } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import styles from './insurance.module.css'
 
@@ -37,9 +38,9 @@ export default function InsurancePage() {
               <a href="#contact-sales" className={styles.primaryBtn}>
                 {isEn ? 'Contact Sales' : 'Wasiliana na Mauzo'}
               </a>
-              <a href="/business/api-integration" className={styles.textLink}>
+              <Link href="/business/api-integration" className={styles.textLink}>
                 {isEn ? 'View API Docs' : 'Tazama Nyaraka za API'} <ChevronRight size={16} />
-              </a>
+              </Link>
             </div>
           </div>
           
@@ -55,7 +56,7 @@ export default function InsurancePage() {
                   <span className={styles.uiValue}>Clean</span>
                 </div>
                 <div className={styles.uiRowAlert}>
-                  <span className={styles.uiLabelAlert}>Hakiki Discovery:</span>
+                  <span className={styles.uiLabelAlert}>CarHakiki Discovery:</span>
                   <span className={styles.uiValueAlert}>Structural Damage (2021)</span>
                 </div>
                 <div className={styles.imgPlaceholder}>
@@ -89,13 +90,13 @@ export default function InsurancePage() {
       <section className={styles.ctaBanner}>
         <div className={`container ${styles.ctaInner}`}>
           <h2>{isEn ? 'Ready to minimize your loss ratio?' : 'Uko tayari kupunguza uwiano wako wa hasara?'}</h2>
-          <p>{isEn ? 'Join leading East African insurers using Hakiki data to underwrite smarter.' : 'Jiunge na makampuni ya bima yanayoongoza Afrika Mashariki yanayotumia data ya Hakiki.'}</p>
-          <a href="/contact" className={styles.whiteBtn}>{isEn ? 'Request a Demo' : 'Omba Demo'}</a>
+          <p>{isEn ? 'Join leading East African insurers using CarHakiki data to underwrite smarter.' : 'Jiunge na makampuni ya bima yanayoongoza Afrika Mashariki yanayotumia data ya CarHakiki.'}</p>
+          <Link href="/contact" className={styles.whiteBtn}>{isEn ? 'Request a Demo' : 'Omba Demo'}</Link>
         </div>
       </section>
 
       <footer className={styles.simpleFooter}>
-        <div className="container">© {new Date().getFullYear()} Hakiki B2B.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki B2B.</div>
       </footer>
     </main>
   )

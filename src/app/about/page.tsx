@@ -1,6 +1,7 @@
 'use client'
 
 import { Shield, Languages } from 'lucide-react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
 import Navbar from '@/components/Navbar'
@@ -56,19 +57,19 @@ export default function AboutPage() {
           <div className={styles.heroText}>
             <h1>
               {isEn
-                ? 'Building transparency in East Africa\'s used car market'
+                ? 'Building transparency in East Africa&apos;s used car market'
                 : 'Kujenga uwazi katika soko la magari yaliyotumika Afrika Mashariki'}
             </h1>
             <p>
               {isEn
-                ? "We collect and organize the most relevant information about a vehicle, and present it in an easy-to-understand format. These reports are a great way to avoid bad deals, learn a vehicle's story, keep it healthy, or sell it at a good price."
+                ? "We collect and organize the most relevant information about a vehicle, and present it in an easy-to-understand format. These reports are a great way to avoid bad deals, learn a vehicle&apos;s story, keep it healthy, or sell it at a good price."
                 : "Tunakusanya na kupanga taarifa muhimu zaidi kuhusu gari, na kuiwasilisha kwa njia rahisi kuelewa. Ripoti hizi ni njia bora ya kuepuka miamala mibaya, kujifunza historia ya gari, kuliweka vizuri, au kuliuza kwa bei nzuri."}
             </p>
           </div>
           <div className={styles.heroVisual}>
             <Image
               src="/about-hero.png"
-              alt={isEn ? 'Hakiki - Vehicle history reports' : 'Hakiki - Ripoti za historia ya gari'}
+              alt={isEn ? 'CarHakiki - Vehicle history reports' : 'CarHakiki - Ripoti za historia ya gari'}
               width={520}
               height={380}
               className={styles.heroImg}
@@ -84,7 +85,7 @@ export default function AboutPage() {
           <div className={styles.featureVisual}>
             <Image
               src="/about-mascot-reading.png"
-              alt="Hakiki research"
+              alt="CarHakiki research"
               width={460}
               height={340}
               className={styles.featureImg}
@@ -98,8 +99,8 @@ export default function AboutPage() {
             </h2>
             <p>
               {isEn
-                ? "Working with automotive data has taught us a lot about vehicles and the second-hand market. One of Hakiki's main goals is to share this knowledge and empower car buyers not only with history reports but also with our expert-driven research, guides, tips and tricks. It doesn't matter if you're a vehicle buyer, owner, or seller — the Hakiki Blog has useful information to make your life easier."
-                : "Kufanya kazi na data ya magari kumetufundisha mengi kuhusu magari na soko la mitumba. Moja ya malengo makubwa ya Hakiki ni kushiriki ujuzi huu na kuwawezesha wanunuzi wa magari si tu kwa ripoti za historia bali pia kwa utafiti wetu wa kitaalamu, miongozo, na vidokezo. Haijalishi kama wewe ni mnunuzi, mmiliki, au muuzaji wa gari — Blog ya Hakiki ina taarifa muhimu kukufanya maisha yako kuwa rahisi."}
+                ? "Working with automotive data has taught us a lot about vehicles and the second-hand market. One of CarHakiki&apos;s main goals is to share this knowledge and empower car buyers not only with history reports but also with our expert-driven research, guides, tips and tricks. It doesn't matter if you're a vehicle buyer, owner, or seller — the CarHakiki Blog has useful information to make your life easier."
+                : "Kufanya kazi na data ya magari kumetufundisha mengi kuhusu magari na soko la mitumba. Moja ya malengo makubwa ya CarHakiki ni kushiriki ujuzi huu na kuwawezesha wanunuzi wa magari si tu kwa ripoti za historia bali pia kwa utafiti wetu wa kitaalamu, miongozo, na vidokezo. Haijalishi kama wewe ni mnunuzi, mmiliki, au muuzaji wa gari — Blog ya CarHakiki ina taarifa muhimu kukufanya maisha yako kuwa rahisi."}
             </p>
           </div>
         </div>
@@ -113,8 +114,8 @@ export default function AboutPage() {
           </h2>
           <p className={styles.marketsSubtitle}>
             {isEn
-              ? 'Hakiki sources data from the world\'s most trusted vehicle databases. We\'ve established a presence in 45+ markets, and we continue to expand, raising the level of transparency in the global used car market.'
-              : 'Hakiki inapata data kutoka kwenye kanzidata za magari zinazoaminika zaidi duniani. Tuna uwepo katika masoko 45+, na tunaendelea kupanuka, kuongeza kiwango cha uwazi katika soko la magari yaliyotumika duniani.'}
+              ? 'CarHakiki sources data from the world&apos;s most trusted vehicle databases. We&apos;ve established a presence in 45+ markets, and we continue to expand, raising the level of transparency in the global used car market.'
+              : 'CarHakiki inapata data kutoka kwenye kanzidata za magari zinazoaminika zaidi duniani. Tuna uwepo katika masoko 45+, na tunaendelea kupanuka, kuongeza kiwango cha uwazi katika soko la magari yaliyotumika duniani.'}
           </p>
           <div className={styles.marketPills}>
             {markets.map((m, i) => (
@@ -128,7 +129,7 @@ export default function AboutPage() {
       <section className={styles.numbersSection}>
         <div className="container">
           <h2 className={styles.numbersTitle}>
-            {isEn ? 'Hakiki in numbers' : 'Hakiki kwa nambari'}
+            {isEn ? 'CarHakiki in numbers' : 'CarHakiki kwa nambari'}
           </h2>
           <div className={styles.numbersGrid}>
             {stats.map((s, i) => (
@@ -148,7 +149,7 @@ export default function AboutPage() {
       <section className={styles.awardsSection}>
         <div className="container">
           <h2 className={styles.awardsTitle}>
-            {isEn ? 'Hakiki awards and nominations' : 'Tuzo na uteuzi wa Hakiki'}
+            {isEn ? 'CarHakiki awards and nominations' : 'Tuzo na uteuzi wa CarHakiki'}
           </h2>
           <div className={styles.awardsGrid}>
             {awards.map((a, i) => (
@@ -173,17 +174,17 @@ export default function AboutPage() {
             </h2>
             <p>
               {isEn
-                ? "For decades, getting a used car was a game of hide-and-seek between buyers and sellers. As recently as 5 years ago, you could only hope for sincerity or demand an expensive inspection. Today, Hakiki gives you verified data in 40 seconds — for less than the price of a lunch."
-                : "Kwa miongo kadhaa, kupata gari lililotumika ilikuwa mchezo wa kujificha kati ya wanunuzi na wauzaji. Leo, Hakiki inakupa data iliyothibitishwa kwa sekunde 40 — kwa bei ndogo kuliko gharama ya chakula cha mchana."}
+                ? "For decades, getting a used car was a game of hide-and-seek between buyers and sellers. As recently as 5 years ago, you could only hope for sincerity or demand an expensive inspection. Today, CarHakiki gives you verified data in 40 seconds — for less than the price of a lunch."
+                : "Kwa miongo kadhaa, kupata gari lililotumika ilikuwa mchezo wa kujificha kati ya wanunuzi na wauzaji. Leo, CarHakiki inakupa data iliyothibitishwa kwa sekunde 40 — kwa bei ndogo kuliko gharama ya chakula cha mchana."}
             </p>
-            <a href="/" className={styles.ctaButton}>
+            <Link href="/" className={styles.ctaButton}>
               {isEn ? 'Check a car now →' : 'Hakiki gari sasa →'}
-            </a>
+            </Link>
           </div>
           <div className={styles.bottomCtaVisual}>
             <Image
               src="/about-mascot-cta.png"
-              alt="Hakiki mascot"
+              alt="CarHakiki mascot"
               width={320}
               height={320}
               className={styles.ctaMascot}
@@ -197,9 +198,9 @@ export default function AboutPage() {
         <div className={`container ${styles.footerInner}`}>
           <div className={styles.footerBrand}>
             <Shield size={20} />
-            <span>Hakiki</span>
+            <span>CarHakiki</span>
           </div>
-          <p>© {new Date().getFullYear()} Hakiki. {isEn ? 'All rights reserved.' : 'Haki zote zimehifadhiwa.'}</p>
+          <p>© {new Date().getFullYear()} CarHakiki. {isEn ? 'All rights reserved.' : 'Haki zote zimehifadhiwa.'}</p>
         </div>
       </footer>
     </main>

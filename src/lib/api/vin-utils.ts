@@ -19,6 +19,11 @@ export function detectVinFormat(input: string): 'vin' | 'chassis' | 'invalid' {
   return 'invalid'
 }
 
+// WMI codes starting with 'L' are assigned to China
+export function isChineseVin(vin: string): boolean {
+  return vin.toUpperCase().startsWith('L')
+}
+
 export function detectDataSource(vin: string, format: string): 'japan' | 'europe' | 'global' {
   if (format === 'chassis') return 'japan'
 

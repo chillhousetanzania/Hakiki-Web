@@ -1,42 +1,58 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Shield, FileText, Clock, Search, Plus } from 'lucide-react'
+import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { supabase } from '@/lib/supabase'
 import styles from './page.module.css'
 
-// Mock data — will be replaced with Supabase queries
-const mockReports = [
-  {
-    id: 'RPT-001',
-    vin: 'JTDKN3DU5A0123456',
-    vehicle: '2010 TOYOTA Prius',
-    score: 87,
-    status: 'completed',
-    createdAt: '2025-01-15T12:30:00Z',
-  },
-  {
-    id: 'RPT-002',
-    vin: 'WVWZZZ3CZWE123456',
-    vehicle: '2014 VOLKSWAGEN Golf',
-    score: 72,
-    status: 'completed',
-    createdAt: '2025-01-14T09:15:00Z',
-  },
-]
+interface Report {
+  id: string
+  vin: string
+  vehicle_info: { make: string; model: string; year: number }
+  overall_score: number
+  status: string
+  created_at: string
+}
 
 export default function DashboardPage() {
   const router = useRouter()
-  const [reports] = useState(mockReports)
+  const [reports, setReports] = useState<Report[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchReports() {
+      const { data, error } = await supabase
+        .from('reports')
+        .select('id, vin, vehicle_info, overall_score, status, created_at')
+        .order('created_at', { ascending: false })
+
+      if (error) {
+        console.error('Failed to fetch reports:', error)
+      } else {
+        setReports(data || [])
+      }
+      setLoading(false)
+    }
+
+    fetchReports()
+  }, [])
 
   const scoreColor = (score: number) =>
     score >= 80 ? 'var(--color-safe)' : score >= 50 ? 'var(--color-warning)' : 'var(--color-danger)'
+
+  const vehicleLabel = (r: Report) => {
+    const v = r.vehicle_info
+    if (!v) return r.vin
+    return `${v.year || ''} ${v.make || ''} ${v.model || ''}`.trim() || r.vin
+  }
 
   return (
     <main className={styles.page}>
       <nav className={styles.nav}>
         <div className={`container ${styles.navInner}`}>
-          <a href="/" className={styles.logo}><Shield size={20} /> Hakiki</a>
+          <Link href="/" className={styles.logo}><Shield size={20} /> CarHakiki</Link>
           <div className={styles.navLinks}>
             <button className="btn-primary" onClick={() => router.push('/')} style={{ padding: '8px 20px', fontSize: '0.85rem' }}>
               <Plus size={16} /> New Check
@@ -65,17 +81,26 @@ export default function DashboardPage() {
           </div>
           <div className={`card ${styles.statCard}`}>
             <Clock size={24} className={styles.statIcon} />
-            <div className={styles.statNumber}>—</div>
+            <div className={styles.statNumber}>
+              {reports.length > 0
+                ? new Date(reports[0].created_at).toLocaleDateString()
+                : '—'}
+            </div>
             <div className={styles.statLabel}>Last Report</div>
           </div>
         </div>
 
         {/* Reports List */}
         <div className={styles.reportsList}>
-          {reports.length === 0 ? (
+          {loading ? (
+            <div className={styles.emptyState}>
+              <div className="spinner" style={{ width: 32, height: 32 }} />
+              <p>Loading your reports...</p>
+            </div>
+          ) : reports.length === 0 ? (
             <div className={styles.emptyState}>
               <FileText size={48} className={styles.emptyIcon} />
-              <h3>No reports yet</h3>
+              <h3>You have no reports yet</h3>
               <p>Check a vehicle to get your first report</p>
               <button className="btn-primary" onClick={() => router.push('/')}>
                 Check a Vehicle
@@ -86,22 +111,22 @@ export default function DashboardPage() {
               <div
                 key={report.id}
                 className={`card ${styles.reportCard}`}
-                onClick={() => router.push(`/report/${report.id}?vin=${report.vin}`)}
+                onClick={() => router.push(`/report/${report.id}`)}
                 id={`report-${report.id}`}
               >
                 <div className={styles.reportInfo}>
-                  <h3 className={styles.reportVehicle}>{report.vehicle}</h3>
+                  <h3 className={styles.reportVehicle}>{vehicleLabel(report)}</h3>
                   <p className={styles.reportVin}>{report.vin}</p>
                   <p className={styles.reportDate}>
-                    {new Date(report.createdAt).toLocaleDateString()}
+                    {new Date(report.created_at).toLocaleDateString()}
                   </p>
                 </div>
                 <div className={styles.reportScore}>
                   <div
                     className={styles.miniScore}
-                    style={{ borderColor: scoreColor(report.score) }}
+                    style={{ borderColor: scoreColor(report.overall_score) }}
                   >
-                    <span style={{ color: scoreColor(report.score) }}>{report.score}</span>
+                    <span style={{ color: scoreColor(report.overall_score) }}>{report.overall_score}</span>
                   </div>
                   <span className={`badge badge-safe`}>
                     {report.status === 'completed' ? 'Complete' : 'Pending'}

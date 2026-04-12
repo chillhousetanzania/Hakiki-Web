@@ -1,0 +1,110 @@
+﻿
+> carhakiki-app@0.1.0 lint
+> eslint
+
+
+D:\websites\Hakiki\hakiki-app\src\app\about\page.tsx
+   3:18  warning  'Languages' is defined but never used             @typescript-eslint/no-unused-vars
+  47:21  warning  'setLanguage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\blog\page.tsx
+  3:10  warning  'Shield' is defined but never used     @typescript-eslint/no-unused-vars
+  3:18  warning  'BookOpen' is defined but never used   @typescript-eslint/no-unused-vars
+  3:54  warning  'Building2' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\business\api-integration\page.tsx
+  14:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\websites\Hakiki\hakiki-app\src\app\business\api-integration\page.tsx:14:5
+  12 |
+  13 |   useEffect(() => {
+> 14 |     setMounted(true)
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  15 |   }, [])
+  16 |
+  17 |   const isEn = !mounted || language === 'en'  react-hooks/set-state-in-effect
+
+D:\websites\Hakiki\hakiki-app\src\app\business\dealerships\page.tsx
+  4:47  warning  'ArrowRight' is defined but never used  @typescript-eslint/no-unused-vars
+  6:8   warning  'Image' is defined but never used       @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\business\leasing\page.tsx
+  4:10  warning  'Shield' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\business\page.tsx
+  3:18  warning  'Languages' is defined but never used    @typescript-eslint/no-unused-vars
+  3:29  warning  'CheckCircle' is defined but never used  @typescript-eslint/no-unused-vars
+  3:42  warning  'BarChart3' is defined but never used    @typescript-eslint/no-unused-vars
+  3:58  warning  'Users' is defined but never used        @typescript-eslint/no-unused-vars
+  5:8   warning  'Image' is defined but never used        @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\company\careers\page.tsx
+  4:25  warning  'Zap' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\company\press\page.tsx
+  4:20  warning  'FileText' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\help\page.tsx
+   3:18  warning  'Languages' is defined but never used             @typescript-eslint/no-unused-vars
+   5:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
+  22:21  warning  'setLanguage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\no-vin\page.tsx
+   3:31  warning  'Languages' is defined but never used             @typescript-eslint/no-unused-vars
+  39:21  warning  'setLanguage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\page.tsx
+   6:18  warning  'Languages' is defined but never used             @typescript-eslint/no-unused-vars
+  65:21  warning  'setLanguage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\websites\Hakiki\hakiki-app\src\app\report\demo\page.tsx
+   7:15  warning  'Calendar' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   8:3   warning  'TrendingUp' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  24:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\websites\Hakiki\hakiki-app\src\app\report\demo\page.tsx:24:7
+  22 |     if (stored) {
+  23 |       const parsed = JSON.parse(stored)
+> 24 |       setVehicleInfo(parsed.vehicleInfo)
+     |       ^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  25 |     }
+  26 |     return () => cancelAnimationFrame(handle)
+  27 |   }, [])  react-hooks/set-state-in-effect
+
+D:\websites\Hakiki\hakiki-app\src\app\sample-report\page.tsx
+   5:10  warning  'CheckCircle2' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+   5:60  warning  'Camera' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  22:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\websites\Hakiki\hakiki-app\src\app\sample-report\page.tsx:22:5
+  20 |
+  21 |   useEffect(() => {
+> 22 |     setMounted(true)
+     |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  23 |   }, [])
+  24 |
+  25 |   const isEn = !mounted || language === 'en'  react-hooks/set-state-in-effect
+
+D:\websites\Hakiki\hakiki-app\src\components\Report\MileageRollbackExplorer.tsx
+  47:9  warning  'minMileage' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 30 problems (3 errors, 27 warnings)
+

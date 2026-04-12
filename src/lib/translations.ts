@@ -32,7 +32,7 @@ export const translations = {
     },
     features: {
       sectionTitle: "We check what sellers won't tell you",
-      sectionSubtitle: "Every Hakiki report analyzes multiple data points to give you the full picture before you buy.",
+      sectionSubtitle: "Every CarHakiki report analyzes multiple data points to give you the full picture before you buy.",
       items: [
         {
           title: 'See the real picture',
@@ -44,7 +44,7 @@ export const translations = {
         },
         {
           title: 'Detect stolen vehicles',
-          description: "Hakiki's Theft data shows you whether a car has been flagged as stolen, giving you the peace of mind you need.",
+          description: "CarHakiki's Theft data shows you whether a car has been flagged as stolen, giving you the peace of mind you need.",
         },
         {
           title: 'Verify actual mileage',
@@ -118,8 +118,8 @@ export const translations = {
       ]
     },
     valueProps: {
-      title: 'Why smart car buyers start with Hakiki',
-      subtitle: 'A Hakiki vehicle history report is your first step to knowing what\'s worth your money, your time, and your trust.',
+      title: 'Why smart car buyers start with CarHakiki',
+      subtitle: 'A CarHakiki vehicle history report is your first step to knowing what\'s worth your money, your time, and your trust.',
       items: [
         {
           title: 'Avoid expensive mistakes',
@@ -137,11 +137,11 @@ export const translations = {
     },
     testimonials: {
       title: 'Hear from car buyers like you',
-      subtitle: 'See why they\'re using Hakiki to make smarter car deals.',
+      subtitle: 'See why they\'re using CarHakiki to make smarter car deals.',
     },
     faq: {
       title: 'Got questions? We\'ve got answers',
-      subtitle: 'Everything you need to know about Hakiki vehicle history reports.',
+      subtitle: 'Everything you need to know about CarHakiki vehicle history reports.',
       items: [
         { q: 'What is a VIN?', a: 'A Vehicle Identification Number is a unique 17-character code that identifies every car. You can find it on the dashboard, driver\'s door frame, or vehicle documents.' },
         { q: 'What\'s a chassis number?', a: 'Japanese cars use chassis numbers (like NZE141-1234567) instead of VINs. We support both formats.' },
@@ -161,7 +161,7 @@ export const translations = {
       faq: 'FAQ',
       privacy: 'Privacy Policy',
       terms: 'Terms of Service',
-      rights: '\u00A9 {year} Hakiki. All rights reserved.'
+      rights: '\u00A9 {year} CarHakiki. All rights reserved.'
     }
   },
   sw: {
@@ -197,7 +197,7 @@ export const translations = {
     },
     features: {
       sectionTitle: "Tunahakiki kile wauzaji wanakuficha",
-      sectionSubtitle: "Kila ripoti ya Hakiki inachanganua data nyingi ili kukupa picha kamili kabla hujafanya uamuzi.",
+      sectionSubtitle: "Kila ripoti ya CarHakiki inachanganua data nyingi ili kukupa picha kamili kabla hujafanya uamuzi.",
       items: [
         {
           title: 'Tazama picha halisi',
@@ -209,7 +209,7 @@ export const translations = {
         },
         {
           title: 'Tambua magari yaliyoibiwa',
-          description: 'Data za wizi za Hakiki hukuonyesha kama gari limeripotiwa kuibiwa mahali popote duniani.',
+          description: 'Data za wizi za CarHakiki hukuonyesha kama gari limeripotiwa kuibiwa mahali popote duniani.',
         },
         {
           title: 'Uhakiki halisi wa maileji',
@@ -283,8 +283,8 @@ export const translations = {
       ]
     },
     valueProps: {
-      title: 'Kwa nini wanunuzi wajanja wanaanza na Hakiki',
-      subtitle: 'Ripoti ya historia ya gari ya Hakiki ni hatua yako ya kwanza kujua kinachostahili pesa yako, muda wako, na uaminifu wako.',
+      title: 'Kwa nini wanunuzi wajanja wanaanza na CarHakiki',
+      subtitle: 'Ripoti ya historia ya gari ya CarHakiki ni hatua yako ya kwanza kujua kinachostahili pesa yako, muda wako, na uaminifu wako.',
       items: [
         {
           title: 'Epuka makosa ya gharama kubwa',
@@ -302,11 +302,11 @@ export const translations = {
     },
     testimonials: {
       title: 'Sikia kutoka kwa wanunuzi wa magari kama wewe',
-      subtitle: 'Tazama kwa nini wanatumia Hakiki kufanya miamala bora ya magari.',
+      subtitle: 'Tazama kwa nini wanatumia CarHakiki kufanya miamala bora ya magari.',
     },
     faq: {
       title: 'Una maswali? Tuna majibu',
-      subtitle: 'Kila unachohitaji kujua kuhusu ripoti za historia ya gari za Hakiki.',
+      subtitle: 'Kila unachohitaji kujua kuhusu ripoti za historia ya gari za CarHakiki.',
       items: [
         { q: 'VIN ni nini?', a: 'Namba ya Utambulisho wa Gari ni msimbo wa kipekee wa herufi 17 unaotambulisha kila gari. Unaweza kuipata kwenye dashibodi, fremu ya mlango wa dereva, au nyaraka za gari.' },
         { q: 'Namba ya chasi ni nini?', a: 'Magari ya Kijapani hutumia namba za chasi (kama NZE141-1234567) badala ya VIN. Tunaauni aina zote mbili.' },
@@ -326,7 +326,7 @@ export const translations = {
       faq: 'Maswali Yanayoulizwa Sana',
       privacy: 'Sera ya Faragha',
       terms: 'Vigezo na Masharti',
-      rights: '\u00A9 {year} Hakiki. Haki zote zimehifadhiwa.'
+      rights: '\u00A9 {year} CarHakiki. Haki zote zimehifadhiwa.'
     }
   }
 }

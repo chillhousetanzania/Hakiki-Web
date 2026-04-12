@@ -14,15 +14,15 @@ export default function PressPage() {
       <Navbar />
 
       <section className={styles.heroSection}>
-        <div className="container text-center">
+        <div className="container center-text">
           <div className={styles.tag}>{isEn ? 'Press & Media' : 'Vyombo vya Habari'}</div>
           <h1 className={styles.title}>
-            {isEn ? 'Hakiki Media Center' : 'Kituo cha Habari cha Hakiki'}
+            {isEn ? 'CarHakiki Media Center' : 'Kituo cha Habari cha CarHakiki'}
           </h1>
           <p className={styles.subtitle}>
             {isEn 
-              ? 'Everything you need to write about Hakiki. Download our official brand assets, read our latest press releases, and get in touch with our PR team.'
-              : 'Kila kitu unachohitaji kuandika kuhusu Hakiki. Pakua rasilimali zetu rasmi na usome matoleo mapya ya waandishi.'}
+              ? 'Everything you need to write about CarHakiki. Download our official brand assets, read our latest press releases, and get in touch with our PR team.'
+              : 'Kila kitu unachohitaji kuandika kuhusu CarHakiki. Pakua rasilimali zetu rasmi na usome matoleo mapya ya waandishi.'}
           </p>
         </div>
       </section>
@@ -39,7 +39,7 @@ export default function PressPage() {
             
             <div className={styles.assetCard}>
               <div className={styles.assetVisual}>
-                <div className={styles.logoMock}>HAKIKI</div>
+                <div className={styles.logoMock}>CARHAKIKI</div>
               </div>
               <div className={styles.assetInfo}>
                 <div>
@@ -52,7 +52,7 @@ export default function PressPage() {
 
             <div className={styles.assetCard}>
               <div className={styles.assetVisualDark}>
-                <div className={styles.logoMockDark}>HAKIKI</div>
+                <div className={styles.logoMockDark}>CARHAKIKI</div>
               </div>
               <div className={styles.assetInfo}>
                 <div>
@@ -71,17 +71,17 @@ export default function PressPage() {
             <div className={styles.newsList}>
               <a href="#" className={styles.newsItem}>
                 <span className={styles.date}>March 14, 2026</span>
-                <h3>Hakiki secures $2.5M Seed Round to expand vehicle history reports across East Africa</h3>
+                <h3>CarHakiki secures $2.5M Seed Round to expand vehicle history reports across East Africa</h3>
                 <span className={styles.readMore}>{isEn ? 'Read Release' : 'Soma Zaidi'} <ArrowRight size={14}/></span>
               </a>
               <a href="#" className={styles.newsItem}>
                 <span className={styles.date}>February 02, 2026</span>
-                <h3>Hakiki partners with leading Tanzanian auto importers to verify JAAI certificates</h3>
+                <h3>CarHakiki partners with leading Tanzanian auto importers to verify JAAI certificates</h3>
                 <span className={styles.readMore}>{isEn ? 'Read Release' : 'Soma Zaidi'} <ArrowRight size={14}/></span>
               </a>
               <a href="#" className={styles.newsItem}>
                 <span className={styles.date}>January 10, 2026</span>
-                <h3>Launch of the Hakiki B2B API platform for Dealerships and Insurance Firms</h3>
+                <h3>Launch of the CarHakiki B2B API platform for Dealerships and Insurance Firms</h3>
                 <span className={styles.readMore}>{isEn ? 'Read Release' : 'Soma Zaidi'} <ArrowRight size={14}/></span>
               </a>
             </div>
@@ -89,8 +89,8 @@ export default function PressPage() {
             <div className={styles.contactBox}>
               <h3>{isEn ? 'Media Inquiries' : 'Maswali ya Vyombo vya Habari'}</h3>
               <p>{isEn ? 'For interview requests, expert commentary, or media partnerships please contact our PR division.' : 'Kwa maombi ya mahojiano, tafadhali wasiliana nasi.'}</p>
-              <a href="mailto:press@hakiki.co.tz" className={styles.emailLink}>
-                <Mail size={18} /> press@hakiki.co.tz
+              <a href="mailto:press@carhakiki.co.tz" className={styles.emailLink}>
+                <Mail size={18} /> press@carhakiki.co.tz
               </a>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function PressPage() {
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Media.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki Media.</div>
       </footer>
     </main>
   )

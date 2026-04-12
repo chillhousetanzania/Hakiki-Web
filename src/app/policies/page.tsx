@@ -11,8 +11,8 @@ export default function PrivacyPage() {
     <LegalLayout title={isEn ? 'Privacy Policy' : 'Sera ya Faragha'}>
       <p>
         {isEn 
-          ? 'At Hakiki Data Ltd., we take your privacy seriously. This Privacy Policy outlines how we collect, use, and protect your personal information when you use our services.'
-          : 'Katika Hakiki Data Ltd., tunachukua faragha yako kwa uzito. Sera hii inaeleza jinsi tunavyokusanya na kulinda taarifa zako za kibinafsi.'}
+          ? 'At CarHakiki Data Ltd., we take your privacy seriously. This Privacy Policy outlines how we collect, use, and protect your personal information when you use our services.'
+          : 'Katika CarHakiki Data Ltd., tunachukua faragha yako kwa uzito. Sera hii inaeleza jinsi tunavyokusanya na kulinda taarifa zako za kibinafsi.'}
       </p>
 
       <h2>{isEn ? '1. Information We Collect' : '1. Taarifa Tunazokusanya'}</h2>

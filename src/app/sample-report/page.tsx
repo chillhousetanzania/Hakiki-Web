@@ -4,25 +4,20 @@ import Navbar from '@/components/Navbar'
 import Image from 'next/image'
 import { CheckCircle2, AlertTriangle, ShieldCheck, MapPin, Camera, Activity, FileText, Info } from 'lucide-react'
 import { useLanguageStore } from '@/store/languageStore'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import VehicleDamageExplorer from '@/components/Report/VehicleDamageExplorer'
 import MileageRollbackExplorer, { MileageReading } from '@/components/Report/MileageRollbackExplorer'
 import HistoricalTimeline, { TimelineEvent } from '@/components/Report/HistoricalTimeline'
 import TheftCheckGrid from '@/components/Report/TheftCheckGrid'
-import HakikiInsights from '@/components/Report/HakikiInsights'
+import CarHakikiInsights from '@/components/Report/CarHakikiInsights'
 import MarketValueCalculator from '@/components/Report/MarketValueCalculator'
 import styles from './sample-report.module.css'
 
 export default function SampleReportPage() {
   const { language } = useLanguageStore()
-  const [mounted, setMounted] = useState(false)
   const [activeSegment, setActiveSegment] = useState('summary')
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const isEn = !mounted || language === 'en'
+  const isEn = language === 'en'
 
   const carData = {
     make: 'Toyota',
@@ -101,14 +96,14 @@ export default function SampleReportPage() {
   ]
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main} suppressHydrationWarning>
       <Navbar />
 
       {/* TOP HEADER */}
       <div className={styles.reportHeaderWrap}>
         <div className={`container ${styles.reportHeader}`}>
           <div className={styles.headerTitleGroup}>
-            <div className={styles.brandTag}>Hakiki Report</div>
+            <div className={styles.brandTag}>CarHakiki Report</div>
             <h1 className={styles.carTitle}>{carData.year} {carData.make} {carData.model}</h1>
             <div className={styles.vinBadge}>VIN: <strong>{carData.vin}</strong></div>
           </div>
@@ -202,7 +197,7 @@ export default function SampleReportPage() {
                language={isEn ? 'en' : 'sw'}
              />
              
-             <HakikiInsights 
+             <CarHakikiInsights 
                title={isEn ? 'Insight: Abnormal Usage Pattern' : 'Ushauri: Mwenendo Isiyo ya Kawaida'}
                content={isEn 
                  ? "The mileage dropped by 89,400 km in 2024. This is a common tactic to increase the vehicle's resale value. Buying a 'clocked' car means higher maintenance costs and lower safety." 
@@ -232,7 +227,7 @@ export default function SampleReportPage() {
                </div>
              </div>
 
-             <HakikiInsights 
+             <CarHakikiInsights 
                title={isEn ? 'Insight: Secondary Impact Potential' : 'Ushauri: Uwezekano wa Athari za Sekondari'}
                content={isEn 
                  ? "The rear-end impact was minor, but it can affect the parking sensors and trunk alignment over time. Ensure these are verified during inspection." 
@@ -322,7 +317,7 @@ export default function SampleReportPage() {
       </div>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Vehicle Data Hub.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki Vehicle Data Hub.</div>
       </footer>
     </main>
   )

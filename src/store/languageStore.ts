@@ -15,7 +15,7 @@ export const useLanguageStore = create<LanguageStore>()(
       setLanguage: (lang) => set({ language: lang }),
     }),
     {
-      name: 'hakiki-language',
+      name: 'carhakiki-language',
     }
   )
 )

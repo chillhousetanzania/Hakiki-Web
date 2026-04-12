@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
-import { fetchGlobalVinReport } from '@/lib/api/globalvin'
+import { fetchGlobalVinReport, fetchChinaVinReport } from '@/lib/api/globalvin'
 import { decodeVin } from '@/lib/api/nhtsa'
+import { isChineseVin } from '@/lib/api/vin-utils'
+import { createServerClient } from '@/lib/supabase'
 
 export async function POST(request: Request) {
   try {
@@ -10,24 +12,32 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'VIN is required' }, { status: 400 })
     }
 
-    // TODO: Verify payment status with Pesapal before generating report
-    // For now, generate report directly (using free credits for testing)
-
-    // Step 1: Get basic vehicle info from NHTSA (free)
-    const vehicleInfo = await decodeVin(vin)
-
-    // Step 2: Fetch full history from GlobalVIN ($3/report)
-    let globalVinData = null
-    try {
-      globalVinData = await fetchGlobalVinReport(vin)
-    } catch (error) {
-      console.error('GlobalVIN error:', error)
-      // Continue with partial report if GlobalVIN fails
+    if (!orderId) {
+      return NextResponse.json({ error: 'Payment required' }, { status: 403 })
     }
 
-    // Step 3: Build the report
+    // Verify payment before generating report
+    const supabase = createServerClient()
+    const { data: payment, error: paymentError } = await supabase
+      .from('payments')
+      .select('user_id')
+      .eq('order_id', orderId)
+      .eq('status', 'completed')
+      .single()
+
+    if (paymentError || !payment) {
+      return NextResponse.json({ error: 'Payment required' }, { status: 403 })
+    }
+
+    // NHTSA (free) and GlobalVIN are independent — run in parallel
+    const fetchGlobalVin = (isChineseVin(vin) ? fetchChinaVinReport : fetchGlobalVinReport)(vin)
+      .catch((err: Error) => { console.error('GlobalVIN error:', err); return null })
+
+    const [vehicleInfo, globalVinData] = await Promise.all([decodeVin(vin), fetchGlobalVin])
+
+    const reportId = `RPT-${Date.now()}`
     const report = {
-      id: `RPT-${Date.now()}`,
+      id: reportId,
       vin,
       orderId,
       vehicleInfo: vehicleInfo || {
@@ -42,9 +52,7 @@ export async function POST(request: Request) {
         driveType: 'Unknown',
         country: 'Unknown',
       },
-      // Score calculation
       overallScore: calculateScore(globalVinData),
-      // Report sections from GlobalVIN
       mileageHistory: globalVinData?.mileageRecords || [],
       damageRecords: globalVinData?.accidentRecords || [],
       ownershipCount: globalVinData?.ownershipCount || 0,
@@ -61,11 +69,26 @@ export async function POST(request: Request) {
         airbagDeployment: globalVinData?.airbagDeployment || false,
         odometerRollback: globalVinData?.odometerRollback || false,
       },
-      dataSource: globalVinData ? 'GlobalVIN CARFAX' : 'NHTSA (basic)',
+      dataSource: globalVinData ? 'GlobalVIN' : 'NHTSA (basic)',
+      carfax_pending: true,
       generatedAt: new Date().toISOString(),
     }
 
-    // TODO: Cache report in Supabase to avoid duplicate API calls
+    const { error: insertError } = await supabase.from('reports').insert({
+      id: reportId,
+      user_id: payment.user_id,
+      vin,
+      vehicle_info: report.vehicleInfo,
+      report_data: report,
+      status: 'completed',
+      data_source: report.dataSource,
+      overall_score: report.overallScore,
+      carfax_pending: report.carfax_pending,
+    })
+
+    if (insertError) {
+      console.error('Supabase insert error:', insertError)
+    }
 
     return NextResponse.json(report)
   } catch (error) {

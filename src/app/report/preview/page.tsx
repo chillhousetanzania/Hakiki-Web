@@ -30,12 +30,36 @@ export default function PreviewPage() {
   const [paymentError, setPaymentError] = useState('')
 
   useEffect(() => {
+    // First try sessionStorage
     const stored = sessionStorage.getItem('precheck')
     if (stored) {
       setData(JSON.parse(stored))
-    } else {
-      router.push('/')
+      return
     }
+
+    // Fallback: check URL params (for post-payment redirect)
+    const params = new URLSearchParams(window.location.search)
+    const vin = params.get('vin')
+    if (vin) {
+      fetch('/api/vin-precheck', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ vin }),
+      })
+        .then(res => res.json())
+        .then(result => {
+          if (result.vin) {
+            setData(result)
+            sessionStorage.setItem('precheck', JSON.stringify(result))
+          } else {
+            router.push('/')
+          }
+        })
+        .catch(() => router.push('/'))
+      return
+    }
+
+    router.push('/')
   }, [router])
 
   const handlePurchase = async (tierId: string) => {
@@ -92,7 +116,7 @@ export default function PreviewPage() {
           </button>
           <span className={styles.logo}>
             <Shield size={20} />
-            Hakiki
+            CarHakiki
           </span>
         </div>
       </nav>

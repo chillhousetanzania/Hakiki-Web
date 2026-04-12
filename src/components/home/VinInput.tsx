@@ -7,9 +7,18 @@ import styles from './VinInput.module.css'
 interface VinInputProps {
   onSubmit: (vin: string) => void
   loading?: boolean
+  dark?: boolean
+  placeholder?: string
+  buttonLabel?: string
 }
 
-export default function VinInput({ onSubmit, loading = false }: VinInputProps) {
+export default function VinInput({
+  onSubmit,
+  loading = false,
+  dark = false,
+  placeholder = 'Enter VIN or chassis number...',
+  buttonLabel = 'Check Vehicle',
+}: VinInputProps) {
   const [vin, setVin] = useState('')
   const [error, setError] = useState('')
 
@@ -26,13 +35,13 @@ export default function VinInput({ onSubmit, loading = false }: VinInputProps) {
 
   return (
     <form onSubmit={handleSubmit} className={styles.wrapper} id="vin-input-form">
-      <div className={styles.inputGroup}>
-        <Search className={styles.searchIcon} size={20} />
+      <div className={`${styles.inputGroup} ${dark ? styles.inputGroupDark : ''}`}>
+        <Search className={styles.searchIcon} size={18} />
         <input
           id="vin-input"
           type="text"
           className={styles.input}
-          placeholder="Enter VIN or chassis number..."
+          placeholder={placeholder}
           value={vin}
           onChange={(e) => { setVin(e.target.value); setError('') }}
           maxLength={20}
@@ -42,14 +51,13 @@ export default function VinInput({ onSubmit, loading = false }: VinInputProps) {
         <button
           id="vin-submit-btn"
           type="submit"
-          className={styles.button}
+          className={`${styles.button} ${dark ? styles.buttonDark : ''}`}
           disabled={loading || vin.trim().length < 5}
         >
-          {loading ? <span className="spinner" /> : 'Check Vehicle'}
+          {loading ? <span className="spinner" /> : buttonLabel}
         </button>
       </div>
-      {error && <p className={styles.error}>{error}</p>}
-      <p className={styles.hint}>Example: JTDKN3DU5A0123456 or ZZE122-5012345</p>
+      {error && <p className={`${styles.error} ${dark ? styles.errorDark : ''}`}>{error}</p>}
     </form>
   )
 }

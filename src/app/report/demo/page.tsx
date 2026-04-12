@@ -33,7 +33,7 @@ function DemoReportContent() {
           <button className={styles.backBtn} onClick={() => router.push('/')}>
             <ArrowLeft size={20} /> Home
           </button>
-          <span className={styles.logo}><Shield size={20} /> Hakiki — Demo Report</span>
+          <span className={styles.logo}><Shield size={20} /> CarHakiki — Demo Report</span>
         </div>
       </nav>
 
@@ -134,9 +134,9 @@ function DemoReportContent() {
         </section>
 
         <div className={styles.reportFooter}>
-          <p>Report ID: DEMO-{Date.now()}</p>
+          <p>Report ID: DEMO-{vehicleInfo !== null ? 'REPORT' : '...'}</p>
           <p>Data Source: NHTSA (Demo)</p>
-          <p>Generated: {new Date().toLocaleString()}</p>
+          <p>Generated: {vehicleInfo !== null ? new Date().toLocaleDateString() : '...'}</p>
           <p className={styles.disclaimer}>
             This is a demo report with sample data. Purchase a plan for real vehicle history.
           </p>

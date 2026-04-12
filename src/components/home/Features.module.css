@@ -1,6 +1,6 @@
 .section {
   padding: 80px 0;
-  background: var(--color-bg);
+  background: var(--color-bg-section);
 }
 
 .header {
@@ -10,50 +10,87 @@
 
 .title {
   font-size: 2.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-text-heading);
+  letter-spacing: -0.03em;
   margin-bottom: var(--space-md);
+  font-family: 'Space Grotesk', var(--font-heading), sans-serif;
 }
 
 .subtitle {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--color-text-secondary);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.7;
+  font-family: 'Inter', var(--font-family), sans-serif;
 }
 
-/* 2x2 card grid like CarVertical */
+/* Bento-style 12-column grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-xl);
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
 }
+
+/* First card: spans 8 */
+.grid > *:nth-child(1) { grid-column: span 8; }
+/* Second card: spans 4 */
+.grid > *:nth-child(2) { grid-column: span 4; }
+/* Third card: spans 4 */
+.grid > *:nth-child(3) { grid-column: span 4; }
+/* Fourth card: spans 8 */
+.grid > *:nth-child(4) { grid-column: span 8; }
 
 .card {
   display: flex;
   align-items: center;
   gap: var(--space-xl);
-  background: var(--color-bg-white);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-xl);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background: #E7F6FF;
+  border-radius: 8px;
+  padding: 40px;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
-  box-shadow: 0 8px 30px var(--color-card-hover-shadow);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+}
+
+/* Blue highlight card (4th card — Service Logs equivalent) */
+.cardHighlight {
+  background: #004EE8;
+}
+
+.cardHighlight .cardTitle {
+  color: #FFFFFF;
+}
+
+.cardHighlight .cardDesc {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Narrow cards (2nd and 3rd) stack vertically */
+.grid > *:nth-child(2),
+.grid > *:nth-child(3) {
+  flex-direction: column;
 }
 
 .imageWrap {
   flex-shrink: 0;
   width: 280px;
   height: 200px;
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   overflow: hidden;
-  background: #f0f7ff; /* Light blue frame like CV */
-  padding: 8px; /* Frame padding */
+  background: rgba(0, 78, 232, 0.06);
+  padding: 8px;
+}
+
+.grid > *:nth-child(2) .imageWrap,
+.grid > *:nth-child(3) .imageWrap {
+  width: 100%;
+  height: 160px;
 }
 
 /* Photo Collage Component Styles */
@@ -67,7 +104,7 @@
 
 .collageMain {
   flex: 1;
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
   position: relative;
 }
@@ -80,12 +117,11 @@
 }
 
 .collageThumb {
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
   position: relative;
 }
 
-/* Slicing Logic for a 2x2 grid image */
 .sliceTopLeft, .sliceTopRight, .sliceBottomLeft, .sliceBottomRight {
   width: 200% !important;
   height: 200% !important;
@@ -93,21 +129,10 @@
   position: absolute !important;
 }
 
-.sliceTopLeft {
-  top: 0; left: 0;
-}
-
-.sliceTopRight {
-  top: 0; left: -100%;
-}
-
-.sliceBottomLeft {
-  top: -100%; left: 0;
-}
-
-.sliceBottomRight {
-  top: -100%; left: -100%;
-}
+.sliceTopLeft { top: 0; left: 0; }
+.sliceTopRight { top: 0; left: -100%; }
+.sliceBottomLeft { top: -100%; left: 0; }
+.sliceBottomRight { top: -100%; left: -100%; }
 
 .collageImgWrap {
   position: absolute;
@@ -118,7 +143,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: var(--radius-md);
+  border-radius: 4px;
 }
 
 .svgIllustration {
@@ -141,31 +166,71 @@
 }
 
 .cardTitle {
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-text-heading);
   margin-bottom: var(--space-md);
+  font-family: 'Space Grotesk', var(--font-heading), sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .cardDesc {
   font-size: 0.95rem;
-  color: var(--color-text-secondary);
+  color: #454652;
   line-height: 1.7;
+  font-family: 'Inter', var(--font-family), sans-serif;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid > *:nth-child(1),
+  .grid > *:nth-child(2),
+  .grid > *:nth-child(3),
+  .grid > *:nth-child(4) {
+    grid-column: span 1;
+  }
+
+  .grid > *:nth-child(2),
+  .grid > *:nth-child(3) {
+    flex-direction: row;
+  }
+
+  .grid > *:nth-child(2) .imageWrap,
+  .grid > *:nth-child(3) .imageWrap {
+    width: 200px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 600px) {
+  .grid > *:nth-child(1),
+  .grid > *:nth-child(2),
+  .grid > *:nth-child(3),
+  .grid > *:nth-child(4) {
+    grid-column: span 1;
+  }
+
   .card {
     flex-direction: column;
     text-align: center;
+    padding: 28px 20px;
   }
 
-  .imageWrap {
+  .grid > *:nth-child(2),
+  .grid > *:nth-child(3) {
+    flex-direction: column;
+  }
+
+  .imageWrap,
+  .grid > *:nth-child(2) .imageWrap,
+  .grid > *:nth-child(3) .imageWrap {
     width: 100%;
     height: 180px;
   }

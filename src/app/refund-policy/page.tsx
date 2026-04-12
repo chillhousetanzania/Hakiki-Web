@@ -11,8 +11,8 @@ export default function RefundPage() {
     <LegalLayout title={isEn ? 'Report Return Policy' : 'Sera ya Kurejesha Pesa'}>
       <p>
         {isEn 
-          ? 'We want you to be completely satisfied with Hakiki. However, due to the nature of digital data retrieval, our report return policy has specific conditions under which a refund may be issued.'
-          : 'Tunataka uridhike kabisa na Hakiki. Hata hivyo, kutokana na asili ya uchoraji wa data za kidijitali, sera yetu ya kurejesha ina masharti maalum.'}
+          ? 'We want you to be completely satisfied with CarHakiki. However, due to the nature of digital data retrieval, our report return policy has specific conditions under which a refund may be issued.'
+          : 'Tunataka uridhike kabisa na CarHakiki. Hata hivyo, kutokana na asili ya uchoraji wa data za kidijitali, sera yetu ya kurejesha ina masharti maalum.'}
       </p>
 
       <h2>{isEn ? '1. Empty Reports (Full Refund)' : '1. Ripoti Tupu (Kurejeshewa Kamili)'}</h2>
@@ -39,8 +39,8 @@ export default function RefundPage() {
       <h2>{isEn ? '4. How to Request a Refund' : '4. Jinsi ya Kuomba Kurejeshewa Pesa'}</h2>
       <p>
         {isEn 
-          ? 'To initiate a refund request, please email support@hakiki.co.tz with your Account Email and the specific VIN. Our billing team will review all requests within 3 business days.'
-          : 'Ili kuanzisha ombi la kurejeshewa pesa, tafadhali tuma barua pepe kwa support@hakiki.co.tz yenye Barua Pepe ya Akaunti yako na VIN. Timu yetu itapitia maombi yote.'}
+          ? 'To initiate a refund request, please email support@carhakiki.co.tz with your Account Email and the specific VIN. Our billing team will review all requests within 3 business days.'
+          : 'Ili kuanzisha ombi la kurejeshewa pesa, tafadhali tuma barua pepe kwa support@carhakiki.co.tz yenye Barua Pepe ya Akaunti yako na VIN. Timu yetu itapitia maombi yote.'}
       </p>
     </LegalLayout>
   )

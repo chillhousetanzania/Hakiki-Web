@@ -89,7 +89,7 @@ export default function Features() {
         </div>
         <div className={styles.grid}>
           {displayFeatures.map((feature: { title: string; description: string }, i: number) => (
-            <div key={i} className={styles.card} id={`feature-card-${i}`}>
+            <div key={i} className={`${styles.card} ${i === 3 ? styles.cardHighlight : ''}`} id={`feature-card-${i}`}>
               <div className={styles.imageWrap}>
                 {i === 0 ? (
                   <PhotoCollage src={featureImages[i] || ''} alt={feature.title} />

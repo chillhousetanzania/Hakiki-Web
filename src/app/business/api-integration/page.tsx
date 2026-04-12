@@ -3,18 +3,12 @@
 import Navbar from '@/components/Navbar'
 import { CheckCircle2, Terminal, Shield, Zap, Database, ArrowRight, Code2 } from 'lucide-react'
 import { useLanguageStore } from '@/store/languageStore'
-import { useState, useEffect } from 'react'
 import styles from './api-integration.module.css'
 
 export default function ApiIntegrationPage() {
   const { language } = useLanguageStore()
-  const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  const isEn = !mounted || language === 'en'
+  const isEn = language === 'en'
 
   const features = [
     {
@@ -96,22 +90,22 @@ export default function ApiIntegrationPage() {
     },
     "media": {
       "auctionImages": [
-        "https://api.hakiki.co.tz/images/v1/agh30-front.jpg",
-        "https://api.hakiki.co.tz/images/v1/agh30-sheet.jpg"
+        "https://api.carhakiki.co.tz/images/v1/agh30-front.jpg",
+        "https://api.carhakiki.co.tz/images/v1/agh30-sheet.jpg"
       ]
     }
   }
 }`
 
   return (
-    <main className={styles.main}>
+    <main className={styles.main} suppressHydrationWarning>
       <Navbar />
 
       {/* HERO SECTION */}
       <section className={styles.hero}>
         <div className={`container ${styles.heroGrid}`}>
           <div className={styles.heroText}>
-            <div className={styles.badge}>{isEn ? 'Hakiki for Developers' : 'Hakiki kwa Wasanidi'}</div>
+            <div className={styles.badge}>{isEn ? 'CarHakiki for Developers' : 'CarHakiki kwa Wasanidi'}</div>
             <h1>
               {isEn ? 'Power your platform with' : 'Imarisha mfumo wako na'} <br/>
               <span className={styles.highlight}>{isEn ? 'East Africa\'s best vehicle data' : 'data bora za magari Afrika Mashariki'}</span>
@@ -148,7 +142,7 @@ export default function ApiIntegrationPage() {
       <section className={styles.featuresSection}>
         <div className="container">
           <div className={styles.sectionHeader}>
-            <h2>{isEn ? 'Why build with Hakiki?' : 'Kwa nini ujenge na Hakiki?'}</h2>
+            <h2>{isEn ? 'Why build with CarHakiki?' : 'Kwa nini ujenge na CarHakiki?'}</h2>
             <p>{isEn ? 'We solved the data fragmentation problem for imported vehicles.' : 'Tumetatua changamoto ya data zilizotawanyika kwa magari yaliyoingizwa nchini.'}</p>
           </div>
 
@@ -198,7 +192,7 @@ export default function ApiIntegrationPage() {
         <div className={`container ${styles.trustFlex}`}>
           <div className={styles.trustText}>
             <h2>{isEn ? 'Ready to become a trusted market leader?' : 'Uko tayari kuwa kiongozi anayeaminika sokoni?'}</h2>
-            <p>{isEn ? 'Join the top Tanzanian dealerships and insurers leveraging Hakiki data.' : 'Jiunge na maduka makubwa na bima zinazotumia data za Hakiki.'}</p>
+            <p>{isEn ? 'Join the top Tanzanian dealerships and insurers leveraging CarHakiki data.' : 'Jiunge na maduka makubwa na bima zinazotumia data za CarHakiki.'}</p>
           </div>
           <button className={styles.trustBtn}>
              <Code2 size={20} /> {isEn ? 'Create Developer Account' : 'Fungua Akaunti ya Wasanidi'}
@@ -207,7 +201,7 @@ export default function ApiIntegrationPage() {
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Vehicle Data Hub. API Services Division.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki Vehicle Data Hub. API Services Division.</div>
       </footer>
     </main>
   )

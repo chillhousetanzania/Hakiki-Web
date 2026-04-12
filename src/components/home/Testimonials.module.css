@@ -1,15 +1,11 @@
 .section {
   padding: var(--space-3xl) 0;
-  background: var(--color-bg-white);
+  background: #E7F6FF;
 }
 
 .header {
   text-align: center;
   margin-bottom: var(--space-2xl);
-}
-
-.header .section-subtitle {
-  margin: var(--space-md) auto 0;
 }
 
 .grid {
@@ -19,23 +15,26 @@
 }
 
 .card {
-  background: var(--color-bg);
-  border: 1px solid var(--color-card-border);
-  border-radius: var(--radius-lg);
+  background: #FFFFFF;
+  border: 1px solid rgba(198, 197, 212, 0.3);
+  border-radius: 8px;
   padding: var(--space-xl);
   position: relative;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 30px var(--color-card-hover-shadow);
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  box-shadow: 0px 40px 40px -15px rgba(13, 30, 37, 0.08);
 }
 
 .quoteIcon {
-  color: var(--color-primary);
-  opacity: 0.2;
+  color: #D4E5EF;
+  font-size: 4rem;
+  line-height: 1;
   margin-bottom: var(--space-md);
+  font-weight: 700;
+  font-family: 'Space Grotesk', var(--font-heading), sans-serif;
 }
 
 .quote {
@@ -44,12 +43,14 @@
   color: var(--color-text);
   margin-bottom: var(--space-lg);
   font-style: italic;
+  font-family: 'Inter', var(--font-family), sans-serif;
 }
 
 .stars {
   display: flex;
   gap: 2px;
   margin-bottom: var(--space-lg);
+  color: #FFD700;
 }
 
 .author {
@@ -57,31 +58,35 @@
   align-items: center;
   gap: var(--space-md);
   padding-top: var(--space-md);
-  border-top: 1px solid var(--color-card-border);
+  border-top: 1px solid rgba(198, 197, 212, 0.3);
 }
 
 .avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-bg-accent-light));
+  background: linear-gradient(135deg, #004EE8, #003AB3);
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .name {
   font-weight: 700;
   font-size: 0.9rem;
   color: var(--color-text-heading);
+  font-family: 'Space Grotesk', var(--font-heading), sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .location {
   font-size: 0.8rem;
   color: var(--color-text-muted);
+  font-family: 'Inter', var(--font-family), sans-serif;
 }
 
 .verified {
@@ -89,9 +94,10 @@
   font-size: 0.7rem;
   font-weight: 600;
   color: var(--color-safe);
-  background: rgba(0, 200, 83, 0.1);
+  background: rgba(22, 163, 74, 0.1);
   padding: 3px 10px;
   border-radius: var(--radius-full);
+  font-family: 'Inter', sans-serif;
 }
 
 @media (max-width: 768px) {

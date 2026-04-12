@@ -22,15 +22,21 @@ const MileageRollbackExplorer: React.FC<MileageRollbackExplorerProps> = ({ readi
   const sortedReadings = [...readings].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
 
   // 2. DETECTION ALGORITHM
-  let maxMileage = 0
-  let rollbackIndex = -1
-  const processedReadings = sortedReadings.map((r, i) => {
-    const isRollback = r.mileage < maxMileage
-    if (isRollback && rollbackIndex === -1) rollbackIndex = i
-    if (r.mileage > maxMileage) maxMileage = r.mileage
-    return { ...r, isRollback, maxPrevious: maxMileage }
-  })
+  const processedReadings = sortedReadings.reduce<{
+    acc: (MileageReading & { isRollback: boolean, maxPrevious: number })[],
+    max: number,
+    rollbackIdx: number
+  }>((context, r, i) => {
+    const isRollback = r.mileage < context.max
+    const newRollbackIdx = (isRollback && context.rollbackIdx === -1) ? i : context.rollbackIdx
+    const newMax = Math.max(context.max, r.mileage)
+    
+    context.acc.push({ ...r, isRollback, maxPrevious: newMax })
+    return { acc: context.acc, max: newMax, rollbackIdx: newRollbackIdx }
+  }, { acc: [], max: 0, rollbackIdx: -1 })
 
+  const rollbackIndex = processedReadings.rollbackIdx
+  const finalReadings = processedReadings.acc
   const hasRollback = rollbackIndex !== -1
 
   // 3. SVG CHART CALCULATIONS
@@ -44,7 +50,7 @@ const MileageRollbackExplorer: React.FC<MileageRollbackExplorerProps> = ({ readi
   const getX = (index: number) => (index / (sortedReadings.length - 1)) * (width - 2 * padding) + padding
   const getY = (val: number) => height - padding - ((val / maxVal) * (height - 2 * padding))
 
-  const points = processedReadings.map((r, i) => ({
+  const points = finalReadings.map((r, i) => ({
     x: getX(i),
     y: getY(r.mileage),
     ...r
@@ -59,8 +65,8 @@ const MileageRollbackExplorer: React.FC<MileageRollbackExplorerProps> = ({ readi
             <h4>{isEn ? 'Odometer Rollback Detected' : 'Udanganyifu wa Kilometa Umegundulika'}</h4>
             <p>
               {isEn 
-                ? `A discrepancy was found at the last reading. The current mileage is lower than recorded in ${new Date(processedReadings[rollbackIndex-1].date).getFullYear()}.`
-                : `Tofauti imegunduliwa kwenye usomaji wa mwisho. Kilometa za sasa ni chache kuliko zilizorekodiwa mwaka ${new Date(processedReadings[rollbackIndex-1].date).getFullYear()}.`}
+                ? `A discrepancy was found at the last reading. The current mileage is lower than recorded in ${new Date(finalReadings[rollbackIndex-1].date).getFullYear()}.`
+                : `Tofauti imegunduliwa kwenye usomaji wa mwisho. Kilometa za sasa ni chache kuliko zilizorekodiwa mwaka ${new Date(finalReadings[rollbackIndex-1].date).getFullYear()}.`}
             </p>
           </div>
         </div>
@@ -119,7 +125,7 @@ const MileageRollbackExplorer: React.FC<MileageRollbackExplorerProps> = ({ readi
           <TrendingUp size={20} />
           <div>
             <span>{isEn ? 'Last Honest Record' : 'Rekodi ya Mwisho Halisi'}</span>
-            <strong>{processedReadings[hasRollback ? rollbackIndex-1 : points.length-1].mileage.toLocaleString()} km</strong>
+            <strong>{finalReadings[hasRollback ? rollbackIndex-1 : points.length-1].mileage.toLocaleString()} km</strong>
           </div>
         </div>
         {hasRollback && (
@@ -127,7 +133,7 @@ const MileageRollbackExplorer: React.FC<MileageRollbackExplorerProps> = ({ readi
             <AlertTriangle size={20} />
             <div>
               <span>{isEn ? 'Estimated Rollback' : 'Makadirio ya Upunguzaji'}</span>
-              <strong>+{(processedReadings[rollbackIndex-1].mileage - processedReadings[rollbackIndex].mileage).toLocaleString()} km</strong>
+              <strong>+{(finalReadings[rollbackIndex-1].mileage - finalReadings[rollbackIndex].mileage).toLocaleString()} km</strong>
             </div>
           </div>
         )}

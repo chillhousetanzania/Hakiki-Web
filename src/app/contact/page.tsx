@@ -14,7 +14,7 @@ export default function ContactPage() {
       <Navbar />
 
       <section className={styles.heroSection}>
-        <div className="container text-center">
+        <div className="container center-text">
           <div className={styles.tag}>{isEn ? 'Contact Us' : 'Wasiliana Nasi'}</div>
           <h1 className={styles.title}>
             {isEn ? 'We\'re here to help.' : 'Tuko hapa kusaidia.'}
@@ -34,7 +34,7 @@ export default function ContactPage() {
             <div className={styles.iconBox}><MessageSquare size={24} className={styles.iconStyle} /></div>
             <h3>{isEn ? 'Customer Support' : 'Huduma kwa Wateja'}</h3>
             <p>{isEn ? 'Have a question about your vehicle history report or payment? Our 24/7 team is ready.' : 'Una swali kuhusu ripoti yako? Timu yetu inapatikana 24/7.'}</p>
-            <a href="mailto:support@hakiki.co.tz" className={styles.linkText}>support@hakiki.co.tz</a>
+            <a href="mailto:support@carhakiki.co.tz" className={styles.linkText}>support@carhakiki.co.tz</a>
             <div className={styles.disclaimer}>{isEn ? 'Average response time: 2 hours' : 'Muda wa kujibu: masaa 2'}</div>
           </div>
 
@@ -42,7 +42,7 @@ export default function ContactPage() {
             <div className={styles.iconBox}><Briefcase size={24} className={styles.iconStyle} /></div>
             <h3>{isEn ? 'B2B & Partnerships' : 'Ubia wa Kibiashara'}</h3>
             <p>{isEn ? 'Interested in bulk report accounts, API access, or affiliate sponsorships? Talk to sales.' : 'Je, unahitaji API au akaunti za mauzo ya jumla? Wasiliana na timu ya mauzo.'}</p>
-            <a href="mailto:b2b@hakiki.co.tz" className={styles.linkText}>b2b@hakiki.co.tz</a>
+            <a href="mailto:b2b@carhakiki.co.tz" className={styles.linkText}>b2b@carhakiki.co.tz</a>
             <div className={styles.disclaimer}>{isEn ? 'For dealerships and insurers' : 'Kwa wafanyabiashara wa magari'}</div>
           </div>
 
@@ -50,13 +50,13 @@ export default function ContactPage() {
             <div className={styles.iconBox}><Mail size={24} className={styles.iconStyle} /></div>
             <h3>{isEn ? 'Press & Media' : 'Wanahabari'}</h3>
             <p>{isEn ? 'Need expert commentary on the East African used car market or press assets?' : 'Je, unahitaji maoni ya wataalamu kuhusu soko la magari Afrika Mashariki?'}</p>
-            <a href="mailto:press@hakiki.co.tz" className={styles.linkText}>press@hakiki.co.tz</a>
+            <a href="mailto:press@carhakiki.co.tz" className={styles.linkText}>press@carhakiki.co.tz</a>
           </div>
 
           <div className={styles.contactCard}>
             <div className={styles.iconBox}><MapPin size={24} className={styles.iconStyle} /></div>
             <h3>{isEn ? 'Headquarters' : 'Ofisi Kuu'}</h3>
-            <p>{isEn ? 'Hakiki Data Ltd.' : 'Hakiki Data Ltd.'}<br/>
+            <p>{isEn ? 'CarHakiki Data Ltd.' : 'CarHakiki Data Ltd.'}<br/>
                Block A, Innovation Hub<br/>
                Dar es Salaam, Tanzania
             </p>
@@ -77,7 +77,7 @@ export default function ContactPage() {
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Organization.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki.</div>
       </footer>
     </main>
   )

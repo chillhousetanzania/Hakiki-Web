@@ -42,7 +42,7 @@ export default function NoVinPage() {
     en: {
       title: "No VIN yet? No problem",
       subtitle: "You don't need a VIN to get started. Choose your bundle today and check any vehicle's history whenever you're ready — your unused reports won't expire for 6 months.",
-      benefitsTitle: "With Hakiki you may get:",
+      benefitsTitle: "With CarHakiki you may get:",
       benefits: [
         "Worry-free reports. No data in a report means an immediate credit refund",
         "Info about previous owners, accidents, theft and mileage records",
@@ -60,7 +60,7 @@ export default function NoVinPage() {
     sw: {
       title: "Huna VIN bado? Hakuna shida",
       subtitle: "Huhitaji VIN kuanza. Chagua kifurushi chako leo na uhakiki historia ya gari lolote utakapokuwa tayari — ripoti zako ambazo hazijatumika hazitaisha kwa miezi 6.",
-      benefitsTitle: "Na Hakiki unaweza kupata:",
+      benefitsTitle: "Na CarHakiki unaweza kupata:",
       benefits: [
         "Ripoti zisizo na wasiwasi. Kama hakuna data kwenye ripoti unapata refundi mara moja",
         "Taarifa kuhusu wamiliki wa awali, ajali, wizi na rekodi za maileji",
@@ -152,9 +152,9 @@ export default function NoVinPage() {
         <div className={`container ${styles.footerInner}`}>
           <div className={styles.footerBrand}>
             <Shield size={20} />
-            <span>Hakiki</span>
+            <span>CarHakiki</span>
           </div>
-          <p>© {new Date().getFullYear()} Hakiki. {language === 'en' ? 'All rights reserved.' : 'Haki zote zimehifadhiwa.'}</p>
+          <p>© {new Date().getFullYear()} CarHakiki. {language === 'en' ? 'All rights reserved.' : 'Haki zote zimehifadhiwa.'}</p>
         </div>
       </footer>
     </main>

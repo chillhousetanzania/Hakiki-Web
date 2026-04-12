@@ -6,8 +6,9 @@
 .title {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--color-text-on-accent);
+  color: #FFFFFF;
   text-align: center;
+  letter-spacing: -0.02em;
   margin-bottom: var(--space-md);
 }
 
@@ -28,7 +29,7 @@
 
 .card {
   background: var(--color-card-bg);
-  border-radius: var(--radius-lg);
+  border-radius: 20px;
   padding: var(--space-xl);
   position: relative;
   display: flex;
@@ -55,7 +56,7 @@
   top: -12px;
   right: 16px;
   background: var(--color-cta);
-  color: var(--color-cta-text);
+  color: #FFFFFF;
   padding: 4px 14px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
@@ -91,7 +92,7 @@
   display: block;
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--color-text-heading);
+  color: var(--color-primary);
 }
 
 .priceUSD {

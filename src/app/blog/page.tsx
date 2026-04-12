@@ -25,8 +25,8 @@ const categories = [
     descSw: 'Ripoti zinazotokana na data kuhusu soko la magari', 
     articles: [
       { 
-        titleEn: 'Hakiki data sources: How history reports are created', 
-        titleSw: 'Chanzo cha data cha Hakiki: Jinsi ripoti zinavyotengenezwa', 
+        titleEn: 'CarHakiki data sources: How history reports are created', 
+        titleSw: 'Chanzo cha data cha CarHakiki: Jinsi ripoti zinavyotengenezwa', 
         date: '16/03/2026',
         image: '/blog/data-sources.png',
         slug: 'data-sources'
@@ -65,7 +65,8 @@ export default function BlogPage() {
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
+    const handle = requestAnimationFrame(() => setMounted(true))
+    return () => cancelAnimationFrame(handle)
   }, [])
 
   const isEn = !mounted || language === 'en'
@@ -107,7 +108,7 @@ export default function BlogPage() {
                     <span className={styles.featDate}>16/03/2026</span>
                  </div>
                  <h1 className={styles.featTitle}>
-                    {isEn ? 'Hakiki data sources: How history reports are created' : 'Chanzo cha data cha Hakiki: Jinsi ripoti zinavyotengenezwa'}
+                    {isEn ? 'CarHakiki data sources: How history reports are created' : 'Chanzo cha data cha CarHakiki: Jinsi ripoti zinavyotengenezwa'}
                  </h1>
                  <div className={styles.featFooter}>
                     <div className={styles.authorGroup}>
@@ -154,7 +155,7 @@ export default function BlogPage() {
                       <h3>{isEn ? article.titleEn : article.titleSw}</h3>
                       <div className={styles.authorGroup}>
                         <div className={styles.avatar}></div>
-                        <span>{isEn ? 'Hakiki Editorial' : 'Timu ya Hakiki'}</span>
+                        <span>{isEn ? 'CarHakiki Editorial' : 'Timu ya CarHakiki'}</span>
                       </div>
                     </div>
                   </Link>
@@ -170,7 +171,7 @@ export default function BlogPage() {
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki Vehicle Data Hub.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki Vehicle Data Hub.</div>
       </footer>
     </main>
   )

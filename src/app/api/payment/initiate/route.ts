@@ -39,7 +39,7 @@ export async function POST(request: Request) {
       id: orderId,
       currency: 'TZS',
       amount: tier.amount,
-      description: `Hakiki ${tier.name} - VIN: ${vin}`,
+      description: `CarHakiki ${tier.name} - VIN: ${vin}`,
       callbackUrl: `${baseUrl}/report/preview?orderId=${orderId}&vin=${vin}`,
       notificationId: ipn.ipn_id,
       billingEmail: email,

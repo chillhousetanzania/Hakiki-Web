@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar'
 import { Rocket, Heart, Zap, Globe, MapPin, ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
 import { useLanguageStore } from '@/store/languageStore'
 import styles from './careers.module.css'
 
@@ -21,8 +22,8 @@ export default function CareersPage() {
       <Navbar />
 
       <section className={styles.heroSection}>
-        <div className="container text-center">
-          <div className={styles.tag}>{isEn ? 'Hakiki Careers' : 'Ajira Hakiki'}</div>
+        <div className="container center-text">
+          <div className={styles.tag}>{isEn ? 'CarHakiki Careers' : 'Ajira CarHakiki'}</div>
           <h1 className={styles.title}>
             {isEn ? 'Drive transparency across Africa.' : 'Leta uwazi kote Afrika.'}
           </h1>
@@ -85,15 +86,15 @@ export default function CareersPage() {
       </section>
 
       <section className={styles.ctaFooter}>
-        <div className="container text-center">
-          <h2>{isEn ? 'Don\'t see a perfect fit?' : 'Huuoni wadhifa wako?'}</h2>
+        <div className="container center-text">
+          <h2>{isEn ? 'Don&apos;t see a perfect fit?' : 'Huuoni wadhifa wako?'}</h2>
           <p>{isEn ? 'Send us your resume anyway. We are always looking for exceptional talent.' : 'Tutumie wasifu wako. Kila wakati tunatafuta vipaji vya kipekee.'}</p>
-          <a href="/contact" className={styles.outlineBtn}>{isEn ? 'Email us directly' : 'Tutumie Barua Pepe'}</a>
+          <Link href="/contact" className={styles.outlineBtn}>{isEn ? 'Email us directly' : 'Tutumie Barua Pepe'}</Link>
         </div>
       </section>
 
       <footer className={styles.footerSimple}>
-        <div className="container">© {new Date().getFullYear()} Hakiki HQ.</div>
+        <div className="container">© {new Date().getFullYear()} CarHakiki HQ.</div>
       </footer>
     </main>
   )

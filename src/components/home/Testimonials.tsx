@@ -11,8 +11,8 @@ const testimonials = [
     nameSw: 'James M.',
     locationEn: 'Dar es Salaam',
     locationSw: 'Dar es Salaam',
-    quoteEn: 'I was about to buy a Land Cruiser Prado with 80,000 km on the clock. Hakiki showed the real mileage was 215,000 km. Saved me millions!',
-    quoteSw: 'Nilikuwa karibu kununua Land Cruiser Prado yenye kilomita 80,000. Hakiki ilionyesha maileji halisi ilikuwa 215,000 km. Iliniokoa mamilioni!',
+    quoteEn: 'I was about to buy a Land Cruiser Prado with 80,000 km on the clock. CarHakiki showed the real mileage was 215,000 km. Saved me millions!',
+    quoteSw: 'Nilikuwa karibu kununua Land Cruiser Prado yenye kilomita 80,000. CarHakiki ilionyesha maileji halisi ilikuwa 215,000 km. Iliniokoa mamilioni!',
     rating: 5,
   },
   {
@@ -20,8 +20,8 @@ const testimonials = [
     nameSw: 'Amina K.',
     locationEn: 'Arusha',
     locationSw: 'Arusha',
-    quoteEn: 'The dealer swore the car was clean. Hakiki uncovered two major accidents in Japan. Best TZS 25,000 I ever spent.',
-    quoteSw: 'Muuzaji aliapa gari lilikuwa safi. Hakiki iligundua ajali mbili kubwa Japan. TZS 25,000 bora niliyowahi kutumia.',
+    quoteEn: 'The dealer swore the car was clean. CarHakiki uncovered two major accidents in Japan. Best TZS 25,000 I ever spent.',
+    quoteSw: 'Muuzaji aliapa gari lilikuwa safi. CarHakiki iligundua ajali mbili kubwa Japan. TZS 25,000 bora niliyowahi kutumia.',
     rating: 5,
   },
   {
@@ -29,8 +29,8 @@ const testimonials = [
     nameSw: 'Peter N.',
     locationEn: 'Mwanza',
     locationSw: 'Mwanza',
-    quoteEn: 'I checked 3 cars before choosing one. Hakiki bundles made it affordable and I drove away with total confidence.',
-    quoteSw: 'Nilihakiki magari 3 kabla ya kuchagua moja. Vifurushi vya Hakiki vilikuwa nafuu na niliondoka kwa ujasiri kamili.',
+    quoteEn: 'I checked 3 cars before choosing one. CarHakiki bundles made it affordable and I drove away with total confidence.',
+    quoteSw: 'Nilihakiki magari 3 kabla ya kuchagua moja. Vifurushi vya CarHakiki vilikuwa nafuu na niliondoka kwa ujasiri kamili.',
     rating: 5,
   },
 ]

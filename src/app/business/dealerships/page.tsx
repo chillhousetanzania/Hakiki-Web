@@ -2,15 +2,16 @@
 
 import Navbar from '@/components/Navbar'
 import { Shield, CheckCircle, BarChart3, Zap, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguageStore } from '@/store/languageStore'
 import styles from './dealerships.module.css'
 
 const benefits = [
-  { icon: <Shield size={24} className={styles.iconElement} />, titleEn: 'Protect your reputation', titleSw: 'Linda sifa yako', descEn: 'Display the "Hakiki Verified" badge on your inventory. Buyers trust transparent dealers, helping you sell 21% faster on average.', descSw: 'Onyesha beji ya "Hakiki Verified" kwenye magari yako. Wanunuzi wanaamini wauzaji wazi.' },
+  { icon: <Shield size={24} className={styles.iconElement} />, titleEn: 'Protect your reputation', titleSw: 'Linda sifa yako', descEn: 'Display the "CarHakiki Verified" badge on your inventory. Buyers trust transparent dealers, helping you sell 21% faster on average.', descSw: 'Onyesha beji ya "CarHakiki Verified" kwenye magari yako. Wanunuzi wanaamini wauzaji wazi.' },
   { icon: <CheckCircle size={24} className={styles.iconElement} />, titleEn: 'Detect hidden damage', titleSw: 'Gundua uharibifu uliofichwa', descEn: 'Filter out bad inventory before you buy. We scan 330M+ damage records from global auctions, insurance, and police databases.', descSw: 'Chuja magari mabaya kabla hujanunua kwa kutumia data zetu za kimataifa.' },
   { icon: <BarChart3 size={24} className={styles.iconElement} />, titleEn: 'Verify true mileage', titleSw: 'Thibitisha maileji ya kweli', descEn: 'Protect yourself from costly import scams. We cross-reference historical odometer readings to flag rollbacks instantly.', descSw: 'Jilinde dhidi ya utapeli wa kuagiza magari kwa kuhakiki maileji kihistoria.' },
-  { icon: <Zap size={24} className={styles.iconElement} />, titleEn: 'Automate via API', titleSw: 'Fanya kiotomatiki (API)', descEn: 'Seamlessly integrate Hakiki reports directly into your dealership CRM or website frontend with our REST API.', descSw: 'Unganisha ripoti za Hakiki moja kwa moja kwenye tovuti yako.' },
+  { icon: <Zap size={24} className={styles.iconElement} />, titleEn: 'Automate via API', titleSw: 'Fanya kiotomatiki (API)', descEn: 'Seamlessly integrate CarHakiki reports directly into your dealership CRM or website frontend with our REST API.', descSw: 'Unganisha ripoti za CarHakiki moja kwa moja kwenye tovuti yako.' },
 ]
 
 export default function DealershipsPage() {
@@ -33,16 +34,16 @@ export default function DealershipsPage() {
             </h1>
             <p className={styles.heroDesc}>
               {isEn 
-                ? 'Give your buyers confidence. Protect your dealership from bad inventory and finalize deals 21% faster by proving your cars are clean with Hakiki.' 
+                ? 'Give your buyers confidence. Protect your dealership from bad inventory and finalize deals 21% faster by proving your cars are clean with CarHakiki.' 
                 : 'Wape wanunuzi wako ujasiri. Linda biashara yako dhidi ya magari mabaya na funga miamala 21% haraka zaidi.'}
             </p>
             <div className={styles.heroActions}>
               <a href="#b2b-contact" className={styles.primaryBtn}>
                 {isEn ? 'Get Dealer Pricing' : 'Pata Bei za Wafanyabiashara'}
               </a>
-              <a href="/sample-report" className={styles.secondaryBtn}>
+              <Link href="/sample-report" className={styles.secondaryBtn}>
                 {isEn ? 'View Sample Report' : 'Tazama Ripoti ya Mfano'}
-              </a>
+              </Link>
             </div>
             <div className={styles.heroTrust}>
               <CheckCircle size={16} /> 
@@ -79,7 +80,7 @@ export default function DealershipsPage() {
       <section className={styles.benefitsSection}>
         <div className={`container ${styles.benefitsInner}`}>
           <h2 className={styles.sectionTitle}>
-            {isEn ? 'Why top dealerships choose Hakiki' : 'Kwa nini wafanyabiashara bora wanachagua Hakiki'}
+            {isEn ? 'Why top dealerships choose CarHakiki' : 'Kwa nini wafanyabiashara bora wanachagua CarHakiki'}
           </h2>
           <div className={styles.benefitsGrid}>
             {benefits.map((benefit, i) => (
@@ -96,7 +97,7 @@ export default function DealershipsPage() {
       {/* FOOTER PLACEHOLDER */}
       <footer className={styles.footerSimple}>
         <div className="container">
-          © {new Date().getFullYear()} Hakiki. {isEn ? 'For Dealerships.' : 'Kwa Wafanyabiashara.'}
+          © {new Date().getFullYear()} CarHakiki. {isEn ? 'For Dealerships.' : 'Kwa Wafanyabiashara.'}
         </div>
       </footer>
     </main>
